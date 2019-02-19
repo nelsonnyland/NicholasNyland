@@ -1,31 +1,99 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@{ 
+    Layout = null;   
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<!DOCTYPE html>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+<html lang="en">
+
+<head>
+    <title>Nicholas Nyland</title>
+    <link rel="favicon" href="images/favicon.ico">
+    <meta charset="utf-8">
+    <meta name="nicholas nyland" content="Nicholas Nyland">    
+    <link rel="stylesheet" media="screen and (min-width: 1000px)" href="@Url.Content("~/Styles/desktop.css")">
+    <link rel="stylesheet" media="screen and (max-width: 1000px)" href="@Url.Content("~/Styles/mobile.css")">
+</head>
+
+<body>
+    <header class="header">
+        <h1>Nicholas Nyland</h1>
+    </header>
+    <main>
+        <aside class="header">
+            <nav>
+                <h2 class="aside-element">News</h2>
+                <img src="~/Images/index~~element106-800x600.jpg" class="news-img">
+                <p class="news-element news-caption">The Binali</p>
+                <h2 class="accordion">Exhibitions</h2>
+                <div class="panel">
+                    <img src="images/triangleside.png" class="arrow"><span class="date">2019</span><br>
+                    <div class="exhibitions">
+                        <p class="show">The Binali</p>
+                    </div>
+                    <img src="images/triangleside.png" class="arrow"><span class="date">2018</span><br>
+                    <div class="exhibitions">
+                        <p class="show">The Binali</p>
+                    </div>
+                    <img src="images/triangleside.png" class="arrow"><span class="date">2017</span><br>
+                    <div class="exhibitions">
+                        <p class="show">The Binali</p>
+                    </div>
+                </div>
+                <h2 class="accordion">Paintings</h2>
+                <div class="panel">
+                    <img src="images/triangleside.png" class="arrow"><span class="date">2019</span><br>
+                    <div class="exhibitions">
+                        <p class="show">The Binali</p>
+                    </div>
+                    <img src="images/triangleside.png" class="arrow"><span class="date">2018</span><br>
+                    <div class="exhibitions">
+                        <p class="show">The Binali</p>
+                    </div>
+                    <img src="images/triangleside.png" class="arrow"><span class="date">2017</span><br>
+                    <div class="exhibitions">
+                        <p class="show">The Binali</p>
+                    </div>
+                </div>
+                <h2 class="accordion">Sculptures</h2>
+                <div class="panel">
+                    <img src="images/triangleside.png" class="arrow"><span class="date">2019</span><br>
+                    <div class="exhibitions">
+                        <p class="show">The Binali</p>
+                    </div>
+                    <img src="images/triangleside.png" class="arrow"><span class="date">2018</span><br>
+                    <div class="exhibitions">
+                        <p class="show">The Binali</p>
+                    </div>
+                    <img src="images/triangleside.png" class="arrow"><span class="date">2017</span><br>
+                    <div class="exhibitions">
+                        <p class="show">The Binali</p>
+                    </div>
+                </div>
+                <h2 class="aside-element">About</h2>
+                <p class="aside-element caption">
+                    Nicholas Nyland is a local Puget Sound artist that is currently
+                    residing in Tacoma, WA.
+                </p>
+            </nav>
+        </aside>
+        <section id="container">
+            <figure class="slideshow">
+                <div id="slide" class="fade">
+
+                </div>
+            </figure>
+            <figure id="bottom-container">
+                <img class="thumbnail" src="~/Images/NylandStudioMountain-800x600.jpg">
+                <img class="thumbnail" src="~/Images/index~~element105-800x600.JPG">
+                <img class="thumbnail" src="~/Images/NN_VS_Pallet_thumb-800x600.jpg">
+                <img class="thumbnail" src="~/Images/index~~element113-800x600.jpg">
+            </figure>
+        </section>
+    </main>
+    <footer>
+        <script src="@Url.Content("~/Scripts/main.js")"></script>
+    </footer>
+</body>
+
+</html>

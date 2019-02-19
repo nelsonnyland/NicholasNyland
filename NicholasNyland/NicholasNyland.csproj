@@ -194,6 +194,15 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\Aspect Ratio.txt" />
+    <Content Include="Images\index~~element105-800x600.JPG" />
+    <Content Include="Images\index~~element106-800x600.jpg" />
+    <Content Include="Images\index~~element113-800x600.jpg" />
+    <Content Include="Images\NN_VS_Pallet_thumb-800x600.jpg" />
+    <Content Include="Images\NylandStudioMountain-800x600.jpg" />
+    <Content Include="Images\triangledown.png" />
+    <Content Include="Images\triangleside.png" />
+    <Content Include="Images\triangleup.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -206,7 +215,10 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Styles\desktop.css" />
+    <Content Include="Styles\mobile.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -218,8 +230,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />

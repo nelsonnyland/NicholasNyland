@@ -1,0 +1,153 @@
+.accordion {
+    cursor: pointer;
+    font-size: 200%;
+    /* margin: 0; */
+    margin: 1%;
+    /* margin-bottom: 0.2em; */
+    /* transition: 0.4s; */
+    /* padding-bottom: 0; */
+}
+
+.aside-element {
+    cursor: default;
+    font-size: 200%;
+    margin: 1%;
+}
+
+.arrow {
+    cursor: pointer;
+    width: 12px;
+    height: 12px;
+    padding-top: 0.5em;
+    padding-right: 0.5em;
+}
+
+aside {
+    float: left;
+    width: 10%;
+    min-width: 70px;
+    padding-right: 2%;
+
+    /* margin-right: 1em; */
+}
+
+#bottom-container {
+    display: flex;
+
+    /* padding-left: 1em; */
+    /* border-style: solid; */
+    flex-wrap: wrap;
+    /* flex-shrink: 1; */
+    /* flex-grow: 1; */
+    /* justify-content: center; */
+}
+
+.caption {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 0.8em;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    /* flex-shrink: 1; */
+    /* text-align: center; */
+
+    /* border-style: solid; */
+    /* justify-content: center; */
+}
+
+.date {
+    cursor: default;
+    /* padding-bottom: 1em; */
+    padding: 0;
+    margin: 0;
+}
+
+.exhibitions {
+    display: none;
+    overflow: hidden;
+    font-size: 1.0em;
+}
+
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+h1 {
+    text-align: center;
+    font-size: 4em;
+    /* padding-left: 450px; */
+    margin: 0;
+}
+
+.header {
+    font-family: "freestyle script", "Kaufmann Bd BT";
+}
+
+.news-img {
+    width: 100%;
+    height: 100%;
+    padding-left: 10%;
+}
+
+.news-caption {
+    font-size: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.news-element {
+    padding-left: 1em;
+}
+
+.panel {
+    display: none;
+    overflow: hidden;
+    
+    font-size: 100%;
+    padding-bottom: 0.5em;
+    padding-left: 0.5em;
+    
+    /* border-style: solid; */
+    /* padding: 0;
+    margin: 0; */
+}
+
+.show {
+    /* padding: 0; */
+    cursor: pointer;
+    /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+    /* font-size: 1em; */
+    padding-top: 0.5em;
+    padding-left: 1em;
+    margin: 0;
+}
+
+/* #slide {
+    width: 100px;
+    height: 100px;
+} */
+
+.slideshow {
+    display: none;
+    /* max-width: 1000px; */
+    /* flex-shrink: 1; */
+    /* transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    -webkit-transform: scale(1, 1); */
+    /* width: 500px; auto
+    height: 500px; auto */
+    /* object-fit: contain fill; */
+}
+
+.thumbnail {    
+    /* cursor: pointer; */
+    width: 100%;
+    height: 100%;
+
+    /* border-style: solid;     */
+}
