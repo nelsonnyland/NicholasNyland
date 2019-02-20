@@ -1,10 +1,6 @@
 console.log("MAIN CONNECTED");
 "use strict";
 
-function $(id) {
-    return document.getElementById(id);
-}
-
 /**
  * Adds event listeners to elements on page.
  */
@@ -23,6 +19,9 @@ function setEventListener() {
     }
 }
 
+/**
+ * Handles side pop-out menu animation.
+ * */
 function accordion() {    
     var panel = this.nextElementSibling;
     if (panel.style.display === "block") {
@@ -37,7 +36,7 @@ function accordion() {
  * @param {event} e the event created by onclick
  */
 function slideshow(e) {
-    var div = $("slide");
+    var div = document.getElementById("slide");
     while (div.hasChildNodes()) {
         div.removeChild(div.firstChild);        
     }
@@ -72,8 +71,11 @@ function toggleArrow(e) {
     }
 }
 
+/**
+ * Appends main image to carousel.
+ * */
 function appendImage() {
-    var div = $("slide");
+    var div = document.getElementById("slide");
     var image = document.createElement("img");
     var slides = document.getElementsByClassName("thumbnail");
     image.src = slides[0].src;
