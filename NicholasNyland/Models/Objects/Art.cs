@@ -7,33 +7,91 @@ namespace NicholasNyland.Models
 {
     public class Art
     {
-        public string Name { get; set; }
-        
-        public DateTime Date { get; set; }
-        
+        string Name;
+        DateTime Date;
         /// <summary>
-        /// 1 = Painting
-        /// 2 = Sculpture
-        /// 3 = Installation
+        /// 1 = Painting, 2 = Sculpture, 3 = Installation
         /// </summary>
-        public int Medium { get; set; }
+        int Medium;
+        string Description;
+        string Path;
         
-        public string Description { get; set; }
-        
-        public string Path { get; set; }
-        
-        public bool Equals(Art piece)
+        public Art()
         {
-            return this.Name == piece.Name &&
-                   this.Date == piece.Date &&
-                   this.Medium == piece.Medium;
+            Name = "";
+            Date = new DateTime();
+            Medium = 0;
+            Description = "";
+            Path = "";
         }
 
         /// <summary>
-        /// Returns medium as a string.
+        /// Instance of Art object.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="date"></param>
+        /// <param name="medium">1 = Painting, 
+        /// 2 = Sculpture, 3 = Installation</param>
+        /// <param name="description"></param>
+        /// <param name="path"></param>
+        public Art(string name,
+                   DateTime date,
+                   int medium,
+                   string description,
+                   string path)
+        {
+            this.Name = name;
+            this.Date = date;
+            this.Medium = medium;
+            this.Description = description;
+            this.Path = path;
+        }
+
+        public string GetName()
+        {
+            return this.Name;
+        }
+
+        public void SetName(string name)
+        {
+            this.Name = name;
+        }
+
+        public DateTime GetDate()
+        {
+            return this.Date;
+        }
+
+        public void SetDate(DateTime date)
+        {
+            this.Date = date;
+        }
+
+        /// <summary>
+        /// Returns the int corresponding to
+        /// 1 = Painting, 2 = Sculpture, 3 = Installation
         /// </summary>
         /// <returns></returns>
-        public string GetMedium()
+        public int GetMedium()
+        {
+            return this.Medium;
+        }
+
+        /// <summary>
+        /// Sets medium based on the int corresponding to
+        /// 1 = Painting, 2 = Sculpture, 3 = Installation
+        /// </summary>
+        /// <param name="medium"></param>
+        public void SetMedium(int medium)
+        {
+            this.Medium = medium;
+        }
+
+        /// <summary>
+        /// Returns the medium name as a string.
+        /// </summary>
+        /// <returns></returns>
+        public string GetNamedMedium()
         {
             if (this.Medium == 1)
             {
@@ -51,12 +109,13 @@ namespace NicholasNyland.Models
         }
 
         /// <summary>
-        /// Sets medium based on string value.
+        /// Sets the medium based on named string argument.
+        /// Valid arguments: painting, sculpture, installation.
         /// Returns true if correctly set.
         /// </summary>
         /// <param name="medium"></param>
         /// <returns></returns>
-        public bool SetMedium(string medium)
+        public bool SetNamedMedium(string medium)
         {
             medium = medium.Trim().ToLower();
             if (medium == "painting")
@@ -77,14 +136,46 @@ namespace NicholasNyland.Models
             return false;
         }
 
+        public string GetDescription()
+        {
+            return this.Description;
+        }
+
+        public void SetDescription(string description)
+        {
+            this.Description = description;
+        }
+
+        public string GetPath()
+        {
+            return this.Path;
+        }
+
+        public void SetPath(string path)
+        {
+            this.Path = path;
+        }
+
         /// <summary>
-        /// Sets path by file name and type.
+        /// Sets path by given file name and type.
         /// </summary>
         /// <param name="fileName"></param>
         /// <param name="fileType"></param>
         public void SetPathByName(string fileName, string fileType)
         {
             this.Path = "~/Images/" + fileName + "." + fileType;
+        }
+
+        /// <summary>
+        /// Compares this Art with the Art given.
+        /// </summary>
+        /// <param name="piece"></param>
+        /// <returns></returns>
+        public bool Equals(Art piece)
+        {
+            return this.Name == piece.Name &&
+                   this.Date == piece.Date &&
+                   this.Medium == piece.Medium;
         }
     }
 }
