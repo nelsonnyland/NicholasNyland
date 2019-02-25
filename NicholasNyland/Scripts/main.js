@@ -55,7 +55,7 @@ function toggleArrow(e) {
         arrow.className == "arrow right") {
         arrow.classList.remove("right");
         arrow.classList.toggle("down");
-        arrow.src = "~/Images/triangledown.png";
+        arrow.src = "Images/triangledown.png";
         var ex = arrow.nextElementSibling
                       .nextElementSibling
                       .nextElementSibling;
@@ -63,7 +63,7 @@ function toggleArrow(e) {
     } else {
         arrow.classList.remove("down");
         arrow.classList.toggle("right");
-        arrow.src = "~/Images/triangleside.png";
+        arrow.src = "Images/triangleside.png";
         var ex = arrow.nextElementSibling
                       .nextElementSibling
                       .nextElementSibling;
