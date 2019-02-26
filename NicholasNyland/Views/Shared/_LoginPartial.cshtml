@@ -6,6 +6,7 @@
     @Html.AntiForgeryToken()
     
     <ul class="nav navbar-nav">
+        <li>@Html.ActionLink("Home", "Index", "Account")</li>
         <li>@Html.ActionLink("Art", "Index", "Arts")</li>
         <li>@Html.ActionLink("Exhibits", "Index", "Exhibits")</li>
     </ul>

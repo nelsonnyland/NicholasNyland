@@ -17,6 +17,10 @@ function setEventListener() {
     for (var i = 0; i < arrows.length; i++) {
         arrows[i].onclick = toggleArrow;
     }
+    var news = document.getElementsByClassName("news");
+    for (var i = 0; i < news.length; i++) {
+        news[i].onclick = newslink;
+    }
 }
 
 /**
@@ -80,6 +84,10 @@ function appendImage() {
     var slides = document.getElementsByClassName("thumbnail");
     image.src = slides[0].src;
     div.appendChild(image);
+}
+
+function newslink() {
+    location.href = "Home/News";
 }
 
 window.onload = function() {
