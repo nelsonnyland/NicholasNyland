@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -14,6 +15,7 @@ namespace NicholasNyland.Models
     
     public class Art
     {
+        [Key]
         public string Name { get; set; }
         public DateTime Date { get; set; }
         public Medium Type { get; set; }
