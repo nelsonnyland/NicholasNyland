@@ -1,2 +1,3 @@
 Crop to 4:3
 Resize to 800x600
+180x135

@@ -1,14 +1,14 @@
+@font-face {
+    font-family: "freestyle script";
+    src: url("/fonts/FREESCPT.TTF") format("TTF");
+}
+
 .accordion {
     cursor: pointer;
     font-size: 200%;
     margin: 1%;
     
     /* transition: 0.4s; */
-}
-
-.aside-element {
-    font-size: 200%;
-    margin: 1%;
 }
 
 .arrow {
@@ -24,6 +24,12 @@ aside {
     width: 10%;
     min-width: 70px;
     padding-right: 2%;
+    text-align: right;
+}
+
+.aside-element {
+    font-size: 200%;
+    margin: 1%;
 }
 
 #bottom-container {
@@ -50,7 +56,7 @@ aside {
 }
 
 .date {
-    cursor: default;
+    cursor: pointer;
     padding: 0;
     margin: 0;
     
@@ -77,14 +83,14 @@ h1 {
 }
 
 .header {
-    font-family: "freestyle script", "Kaufmann Bd BT";
+    font-family: "freestyle script";
 }
 
 .news-img {
     cursor: pointer;
     width: 100%;
     height: 100%;
-    padding-left: 10%;
+    padding-left: 5%;
 }
 
 .news-caption {
