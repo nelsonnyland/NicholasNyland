@@ -1,5 +1,8 @@
-﻿@{ 
-    Layout = null;   
+﻿@model NicholasNyland.Models.Art
+@model NicholasNyland.Models.Exhibit
+
+@{
+    Layout = null;
 }
 
 <!DOCTYPE html>
@@ -10,9 +13,11 @@
     <title>Nicholas Nyland</title>
     <link rel="favicon" href="images/favicon.ico">
     <meta charset="utf-8">
+    @*<meta http-equiv="X-UA-Compatible" content="IE=Edge">*@
     <meta name="nicholas nyland" content="Nicholas Nyland">
     <link rel="stylesheet" media="screen and (min-width: 900px)" href="@Url.Content("~/Styles/desktop.css")">
     <link rel="stylesheet" media="screen and (max-width: 900px)" href="@Url.Content("~/Styles/mobile.css")">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 </head>
 
 <body>

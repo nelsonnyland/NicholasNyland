@@ -1,6 +1,12 @@
 @font-face {
     font-family: "freestyle script";
-    src: url("/fonts/FREESCPT.TTF") format("TTF");
+    src: url("/fonts/FREESCPT.TTF") format("truetype"), 
+         url(FREESCPT.TTF) format("truetype");
+}
+
+@font-face {
+    font-family: "Pacifico";
+    src: url("https://fonts.googleapis.com/css?family=Pacifico");
 }
 
 .accordion {
@@ -83,7 +89,7 @@ h1 {
 }
 
 .header {
-    font-family: "freestyle script";
+    font-family: "freestyle script", "Pacifico";
 }
 
 .news-img {
@@ -155,6 +161,9 @@ h1 {
 
 /* IE */
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .header {
+        font-size: 0.6em;
+    }
     .thumbnail {
         max-height: 20%;
         margin: auto;
