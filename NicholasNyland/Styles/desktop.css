@@ -1,4 +1,4 @@
-@font-face {
+* @font-face {
     font-family: "freestyle script";
     src: url("/fonts/FREESCPT.TTF") format("TTF");
 }
@@ -144,14 +144,40 @@ h1 {
     /*object-fit: contain fill;*/ 
 }
 
-.thumbnail {    
+.thumbnail {
     cursor: pointer;
+    
     /*max-width: 180px;*/
     max-width: 225px;
     width: 20%;
+    
     /*max-height: 135px;*/
     max-height: 169px;
-    height: 20%;
+    height: 60%;
+    
     /*margin: 10px;*/
     margin: 10px;
+}
+
+/*firefox*/
+@-moz-document url-prefix() {
+    .thumbnail {
+        /* firefox */
+        height: auto;
+    }
+}
+
+/*edge*/
+@supports (-ms-ime-align: auto) {
+    .thumbnail {
+        height: auto;
+    }
+}
+
+/* IE */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {  
+    .thumbnail {
+        width: auto;
+        height: auto;
+    }
 }
