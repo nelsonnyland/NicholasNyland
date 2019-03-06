@@ -1,4 +1,7 @@
-﻿using System;
+﻿using NicholasNyland.Models;
+using NicholasNyland.Models.Database;
+using NicholasNyland.Models.Models.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +11,15 @@ namespace NicholasNyland.Controllers
 {
     public class HomeController : Controller
     {
+        ArtDb db = new ArtDb();
+
         public ActionResult Index()
         {
-            return View();
+            ArtViewModel vm = new ArtViewModel();
+            vm.Arts = ArtsDb.GetAllArts(db);
+            vm.Exhibits = ExhibitsDb.GetAllExhibits(db);
+            
+            return View(vm);
         }
 
         public ActionResult News()
