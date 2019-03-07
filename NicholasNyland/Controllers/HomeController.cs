@@ -22,8 +22,11 @@ namespace NicholasNyland.Controllers
             
             // news data
             Exhibit ex = ExhibitsDb.GetNews(db);
-            ViewBag.NewsPath = ex.Gallery.Last().Path;
-            ViewBag.NewsName = ex.Name;
+            if (ex != null)
+            {
+                ViewBag.NewsPath = ex.Gallery.Last().Path;
+                ViewBag.NewsName = ex.Name;
+            }
             
             return View(vm);
         }
