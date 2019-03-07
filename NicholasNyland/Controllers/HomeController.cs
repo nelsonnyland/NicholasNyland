@@ -15,9 +15,15 @@ namespace NicholasNyland.Controllers
 
         public ActionResult Index()
         {
+            // Art and Exhibits
             ArtViewModel vm = new ArtViewModel();
             vm.Arts = ArtsDb.GetAllArts(db);
             vm.Exhibits = ExhibitsDb.GetAllExhibits(db);
+            
+            // news data
+            Exhibit ex = ExhibitsDb.GetNews(db);
+            ViewBag.NewsPath = ex.Gallery.Last().Path;
+            ViewBag.NewsName = ex.Name;
             
             return View(vm);
         }

@@ -18,6 +18,13 @@ namespace NicholasNyland.Models.Database
             return db.DbExhibit.Find(name);
         }
 
+        public static Exhibit GetNews(ArtDb db)
+        {
+            return (Exhibit)from Exhibits in db.DbExhibit
+                            group Exhibits by Exhibits.Date into e
+                            select e.OrderByDescending(d => d.Date).FirstOrDefault();                            
+        }
+
         public static void AddExhibits(ArtDb db, IEnumerable<Exhibit> exhibits)
         {
             db.DbExhibit.AddRange(exhibits);
