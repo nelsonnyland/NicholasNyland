@@ -216,11 +216,6 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\Aspect Ratio.txt" />
-    <Content Include="Images\index~~element105-800x600.JPG" />
-    <Content Include="Images\index~~element106-800x600.jpg" />
-    <Content Include="Images\index~~element113-800x600.jpg" />
-    <Content Include="Images\NN_VS_Pallet_thumb-800x600.jpg" />
-    <Content Include="Images\NylandStudioMountain-800x600.jpg" />
     <Content Include="Images\triangledown.png" />
     <Content Include="Images\triangleside.png" />
     <Content Include="Images\triangleup.png" />

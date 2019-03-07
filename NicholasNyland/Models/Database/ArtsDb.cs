@@ -10,7 +10,7 @@ namespace NicholasNyland.Models.Database
     {
         public static IEnumerable<Art> GetAllArts(ArtDb db)
         {
-            return db.DbArt.ToList();
+            return db.DbArt.OrderByDescending(e => e.Date).ToList();
         }
 
         public static Art GetArt(ArtDb db, string name)

@@ -15,7 +15,6 @@
     <title>Nicholas Nyland</title>
     <link rel="favicon" href="images/favicon.ico">
     <meta charset="utf-8">
-    @*<meta http-equiv="X-UA-Compatible" content="IE=Edge">*@
     <meta name="nicholas nyland" content="Nicholas Nyland">
     <link rel="stylesheet" media="screen and (min-width: 900px)" href="@Url.Content("~/Styles/desktop.css")">
     <link rel="stylesheet" media="screen and (max-width: 900px)" href="@Url.Content("~/Styles/mobile.css")">
@@ -34,6 +33,9 @@
                 <p class="accordion news-element news-caption news">@ViewBag.NewsName</p>
                 <h2 class="accordion">Exhibitions</h2>
                 <div class="panel">
+                    @* for each loop over ienumerable<exhibit> *@
+
+
                     <img src="~/Images/triangleside.png" class="arrow"><span class="date">2019</span><br>
                     <div class="exhibitions">
                         <p class="show">The Binali</p>

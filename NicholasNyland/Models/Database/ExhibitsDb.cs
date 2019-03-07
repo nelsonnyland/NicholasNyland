@@ -8,9 +8,15 @@ namespace NicholasNyland.Models.Database
 {
     public static class ExhibitsDb
     {
+        /// <summary>
+        /// Exhibits are ordered in descending order, enabling first element
+        /// access to latest Exhibit by date. First element is news.
+        /// </summary>
+        /// <param name="db"></param>
+        /// <returns></returns>
         public static IEnumerable<Exhibit> GetAllExhibits(ArtDb db)
         {
-            return db.DbExhibit.ToList();
+            return db.DbExhibit.OrderByDescending(e => e.Date).ToList();
         }
 
         public static Exhibit GetExhibit(ArtDb db, string name)
@@ -18,6 +24,11 @@ namespace NicholasNyland.Models.Database
             return db.DbExhibit.Find(name);
         }
 
+        /// <summary>
+        /// Returns latest Exhibit by date.
+        /// </summary>
+        /// <param name="db"></param>
+        /// <returns></returns>
         public static Exhibit GetNews(ArtDb db)
         {
             return db.DbExhibit.OrderByDescending(e => e.Date).FirstOrDefault();
