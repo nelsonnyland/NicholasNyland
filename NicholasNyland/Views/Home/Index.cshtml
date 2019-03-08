@@ -33,21 +33,21 @@
                 <p class="accordion news-element news-caption news">@ViewBag.NewsName</p>
                 <h2 class="accordion">Exhibitions</h2>
                 <div class="panel">
-                    @* for each loop over ienumerable<exhibit> *@
+                    
+                    @{ int year = 0; }
+                    @foreach (var exhibit in Model.Exhibits)
+                    {
+                        if (exhibit.Date.Year != year)
+                        {
+                            year = exhibit.Date.Year;
+                            <img src="~/Images/triangleside.png" class="arrow"><span class="date">@year</span><br>
+                        }
 
+                        <div class="exhibitions">
+                            <p class="show">@Html.ActionLink(exhibit.Name, "Index", exhibit.Name)</p>
+                        </div>
+                    }
 
-                    <img src="~/Images/triangleside.png" class="arrow"><span class="date">2019</span><br>
-                    <div class="exhibitions">
-                        <p class="show">The Binali</p>
-                    </div>
-                    <img src="~/Images/triangleside.png" class="arrow"><span class="date">2018</span><br>
-                    <div class="exhibitions">
-                        <p class="show">The Binali</p>
-                    </div>
-                    <img src="~/Images/triangleside.png" class="arrow"><span class="date">2017</span><br>
-                    <div class="exhibitions">
-                        <p class="show">The Binali</p>
-                    </div>
                 </div>
                 <h2 class="accordion">Paintings</h2>
                 <div class="panel">

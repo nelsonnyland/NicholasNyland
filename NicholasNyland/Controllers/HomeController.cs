@@ -13,13 +13,8 @@ namespace NicholasNyland.Controllers
     {
         ArtDb db = new ArtDb();
 
-        public ActionResult Index()
+        public ActionResult Index(string id)
         {
-            // Art and Exhibits
-            ArtViewModel vm = new ArtViewModel();
-            vm.Arts = ArtsDb.GetAllArts(db);
-            vm.Exhibits = ExhibitsDb.GetAllExhibits(db);
-            
             // news data
             Exhibit ex = ExhibitsDb.GetNews(db);
             if (ex != null)
@@ -27,7 +22,17 @@ namespace NicholasNyland.Controllers
                 ViewBag.NewsPath = ex.Gallery.Last().Path;
                 ViewBag.NewsName = ex.Name;
             }
+
+            // Exhibits, Paintings, Sculptures
+            ArtViewModel vm = new ArtViewModel();            
+            vm.Exhibits = ExhibitsDb.GetAllExhibits(db);
+            vm.Paintings = ArtsDb.GetAllPaintings(db);
+            vm.Sculptures = ArtsDb.GetAllSculptures(db);
             
+            // Gallery
+            Exhibit galex = ExhibitsDb.GetExhibit(db, id);
+            vm.Gallery = galex.Gallery;
+
             return View(vm);
         }
 
