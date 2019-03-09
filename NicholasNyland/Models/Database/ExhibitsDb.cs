@@ -19,6 +19,12 @@ namespace NicholasNyland.Models.Database
             return db.DbExhibit.OrderByDescending(e => e.Date).ToList();
         }
 
+        /// <summary>
+        /// Gets Exhibit by name.
+        /// </summary>
+        /// <param name="db"></param>
+        /// <param name="name"></param>
+        /// <returns></returns>
         public static Exhibit GetExhibit(ArtDb db, string name)
         {
             return db.DbExhibit.Find(name);

@@ -1,7 +1,4 @@
-﻿@*@using NicholasNyland.Models*@
-@*@model IEnumerable<NicholasNyland.Models.Art>*@
-@*@model IEnumerable<NicholasNyland.Models.Exhibit>*@
-@model NicholasNyland.Models.Models.ViewModels.ArtViewModel
+﻿@model NicholasNyland.Models.Models.ViewModels.ArtViewModel
 
 @{    
     Layout = null;
@@ -34,13 +31,15 @@
                 <h2 class="accordion">Exhibitions</h2>
                 <div class="panel">
                     
+                    @* Exhibitions *@
                     @{ int year = 0; }
                     @foreach (var exhibit in Model.Exhibits)
                     {
                         if (exhibit.Date.Year != year)
                         {
                             year = exhibit.Date.Year;
-                            <img src="~/Images/triangleside.png" class="arrow"><span class="date">@year</span><br>
+                            <img src="~/Images/triangleside.png" class="arrow"><span class="date">
+                                @year</span><br>
                         }
 
                         <div class="exhibitions">
@@ -51,33 +50,36 @@
                 </div>
                 <h2 class="accordion">Paintings</h2>
                 <div class="panel">
-                    <img src="~/Images/triangleside.png" class="arrow"><span class="date">2019</span><br>
-                    <div class="exhibitions">
-                        <p class="show">The Binali</p>
-                    </div>
-                    <img src="~/Images/triangleside.png" class="arrow"><span class="date">2018</span><br>
-                    <div class="exhibitions">
-                        <p class="show">The Binali</p>
-                    </div>
-                    <img src="~/Images/triangleside.png" class="arrow"><span class="date">2017</span><br>
-                    <div class="exhibitions">
-                        <p class="show">The Binali</p>
-                    </div>
+
+                    @* Paintings *@
+                    @{ year = 0; }
+                    @foreach (var painting in Model.Paintings)
+                    {
+                        if (painting.Key.Year != year)
+                        {
+                            year = painting.Key.Year;
+                            <img src="~/Images/triangleside.png" class="arrow"><span class="date">
+                                @Html.ActionLink(year + "", "Index", painting)</span><br>
+                        }
+                    }
+
                 </div>
                 <h2 class="accordion">Sculptures</h2>
                 <div class="panel">
-                    <img src="~/Images/triangleside.png" class="arrow"><span class="date">2019</span><br>
-                    <div class="exhibitions">
-                        <p class="show">The Binali</p>
-                    </div>
-                    <img src="~/Images/triangleside.png" class="arrow"><span class="date">2018</span><br>
-                    <div class="exhibitions">
-                        <p class="show">The Binali</p>
-                    </div>
-                    <img src="~/Images/triangleside.png" class="arrow"><span class="date">2017</span><br>
-                    <div class="exhibitions">
-                        <p class="show">The Binali</p>
-                    </div>
+
+                    @* Sculptures *@
+                    @{ year = 0; }
+                    @foreach (var sculpture in Model.Sculptures)
+                    {
+                        if (sculpture.Key.Year != year)
+                        {
+                            year = sculpture.Key.Year;
+                            <img src="~/Images/triangleside.png" class="arrow"><span class="date">
+                                @Html.ActionLink(year + "", "Index", sculpture)
+                            </span><br>
+                        }
+                    }
+
                 </div>
                 <h2 class="aside-element">About</h2>
                 <p class="aside-element caption">
@@ -93,10 +95,19 @@
                 </div>
             </figure>
             <figure id="bottom-container">
-                <img class="thumbnail" src="~/Images/NylandStudioMountain-800x600.jpg">
-                <img class="thumbnail" src="~/Images/index~~element105-800x600.JPG">
-                <img class="thumbnail" src="~/Images/NN_VS_Pallet_thumb-800x600.jpg">
-                <img class="thumbnail" src="~/Images/index~~element113-800x600.jpg">
+
+                @* Gallery *@
+                @if (Model.Gallery != null)
+                {
+                    int count = 0;
+                    foreach (var thumbnail in Model.Gallery)
+                    {
+                        <img class="thumbnail" src="@Html.DisplayFor(item => thumbnail.Path)">
+
+                        if (++count == 4) { break; }
+                    }
+                }
+
             </figure>
         </section>
     </main>
