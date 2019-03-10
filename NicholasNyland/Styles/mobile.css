@@ -82,10 +82,15 @@ aside {
     animation-duration: 1.5s;
 }
 
-h1 {
-    text-align: center;
-    font-size: 4em;
-    margin: 0;
+.h1 {
+    /*text-align: center;*/
+    /*font-size: 4em;*/
+    /*width: 13em;*/
+    /*height: 5em;*/
+    height: auto;
+    max-width: 80%;
+    padding-left: 20%;
+    /*margin: 0;*/
 }
 
 .header {

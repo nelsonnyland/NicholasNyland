@@ -74,7 +74,8 @@ namespace NicholasNyland.Models.Database
         /// <returns></returns>
         public static IDictionary<DateTime, Medium> GetPaintingMap(ArtDb db)
         {
-            IEnumerable<Art> paintings = db.DbArt.Where(p => p.Type == Medium.PAINTING);
+            IEnumerable<Art> paintings = db.DbArt.OrderByDescending(e => e.Date)
+                                                 .Where(p => p.Type == Medium.PAINTING);
 
             IDictionary<DateTime, Medium> set =
                 new Dictionary<DateTime, Medium>();

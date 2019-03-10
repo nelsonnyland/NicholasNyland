@@ -201,6 +201,7 @@
     <Compile Include="Models\Models\Exhibit.cs" />
     <Compile Include="Models\Database\IdentityModels.cs" />
     <Compile Include="Models\Models\ViewModels\ArtViewModel.cs" />
+    <Compile Include="Models\Models\ViewModels\ExhibitsViewModel.cs" />
     <Compile Include="Models\Models\ViewModels\ManageViewModels.cs" />
     <Compile Include="Models\Models\Art.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -216,6 +217,8 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\Aspect Ratio.txt" />
+    <Content Include="Images\FirstSignature.jpg" />
+    <Content Include="Images\SecondSignature.jpg" />
     <Content Include="Images\triangledown.png" />
     <Content Include="Images\triangleside.png" />
     <Content Include="Images\triangleup.png" />
