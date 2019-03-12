@@ -209,6 +209,20 @@ namespace NicholasNyland.Models.Database
             return arts;
         }
 
+        /// <summary>
+        /// Gets a list of art by comma-separated string items. Returns a List<Art>.
+        /// </summary>
+        /// <param name="db"></param>
+        /// <param name="selects"></param>
+        /// <returns></returns>
+        public static List<Art> GetArtsByString(ArtDb db, string selects)
+        {
+            string[] names = selects.Split(',');
+            IEnumerable<Art> iArts = db.DbArt.Where(a => names.Contains(a.Name));
+            List<Art> arts = new List<Art>(iArts);            
+            return arts;
+        }
+
         public static void AddArts(ArtDb db, IEnumerable<Art> arts)
         {
             db.DbArt.AddRange(arts);

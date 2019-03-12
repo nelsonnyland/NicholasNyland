@@ -54,17 +54,16 @@ namespace NicholasNyland.Controllers
         // [Bind(Include = "Name,Date,Location,Gallery")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Name,Date,Location,Selects")]
-                                    ExhibitsViewModel model)
+        public ActionResult Create(FormCollection data)
         {
             if (ModelState.IsValid)
             {
-                Exhibit ex = new Exhibit()
+                Exhibit ex = new Exhibit
                 {
-                    Name = model.Name,
-                    Date = model.Date,
-                    Location = model.Location,
-                    Gallery = ArtsDb.GetArtsBySelectListItems(db, model.Selects)
+                    Name = data["Name"],
+                    Date = Convert.ToDateTime(data["Date"]),
+                    Location = data["Location"],
+                    Gallery = ArtsDb.GetArtsByString(db, data["Selects"])
                 };
 
                 db.DbExhibit.Add(ex);
@@ -72,7 +71,7 @@ namespace NicholasNyland.Controllers
                 return RedirectToAction("Index");
             }
 
-            return View(model);
+            return View(data);
         }
 
         // GET: Exhibits/Edit/5
