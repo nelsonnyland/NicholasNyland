@@ -181,11 +181,8 @@ namespace NicholasNyland.Models.Database
         /// <returns></returns>
         public static List<SelectListItem> GetCurrentArts_SelectListItems(ArtDb db)
         {
-            //int year = DateTime.Now.Year;
-            int year = 2018;
             List<SelectListItem> items = new List<SelectListItem>();
-            IEnumerable<Art> arts = db.DbArt.OrderBy(a => a.Name)
-                                            .Where(a => a.Date.Year == year);
+            IEnumerable<Art> arts = db.DbArt.OrderBy(a => a.Name);
             foreach (var piece in arts)
             {
                 items.Add(new SelectListItem
@@ -215,11 +212,11 @@ namespace NicholasNyland.Models.Database
         /// <param name="db"></param>
         /// <param name="selects"></param>
         /// <returns></returns>
-        public static List<Art> GetArtsByString(ArtDb db, string selects)
+        public static IList<Art> GetArtsByString(ArtDb db, string selects)
         {
             string[] names = selects.Split(',');
             IEnumerable<Art> iArts = db.DbArt.Where(a => names.Contains(a.Name));
-            List<Art> arts = new List<Art>(iArts);            
+            IList<Art> arts = new List<Art>(iArts);            
             return arts;
         }
 

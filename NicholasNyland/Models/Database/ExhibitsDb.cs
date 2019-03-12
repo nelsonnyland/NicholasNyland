@@ -16,7 +16,8 @@ namespace NicholasNyland.Models.Database
         /// <returns></returns>
         public static IEnumerable<Exhibit> GetAllExhibits(ArtDb db)
         {
-            return db.DbExhibit.OrderByDescending(e => e.Date).ToList();
+            IEnumerable<Exhibit> ex = db.DbExhibit.OrderByDescending(e => e.Date).ToList();
+            return FillExhibits(db, ex);
         }
 
         /// <summary>
@@ -27,7 +28,8 @@ namespace NicholasNyland.Models.Database
         /// <returns></returns>
         public static Exhibit GetExhibit(ArtDb db, string name)
         {
-            return db.DbExhibit.Find(name);
+            Exhibit ex = db.DbExhibit.Find(name);            
+            return FillExhibit(db, ex);
         }
 
         /// <summary>
@@ -37,18 +39,58 @@ namespace NicholasNyland.Models.Database
         /// <returns></returns>
         public static Exhibit GetNews(ArtDb db)
         {
-            return db.DbExhibit.OrderByDescending(e => e.Date).FirstOrDefault();
+            Exhibit ex = db.DbExhibit.OrderByDescending(e => e.Date).FirstOrDefault();
+            return FillExhibit(db, ex);
+        }
+
+        /// <summary>
+        /// Gets a key-value pair of each Exhibit date and name in descending order.
+        /// </summary>
+        /// <param name="db"></param>
+        /// <returns></returns>
+        public static IDictionary<DateTime, string> GetExhibitMap(ArtDb db)
+        {
+            IEnumerable<Exhibit> exhibits = db.DbExhibit.OrderByDescending(e => e.Date).ToList();
+            IDictionary<DateTime, string> pair =
+                new Dictionary<DateTime, string>();
+            foreach (var ex in exhibits)
+            {
+                pair.Add(ex.Date, ex.Name);
+            }
+            return pair;
+        }
+
+        /// <summary>
+        /// Fills a list of Exhibit with an art gallery.
+        /// </summary>
+        /// <param name="db"></param>
+        /// <param name="exhibits"></param>
+        /// <returns></returns>
+        public static IEnumerable<Exhibit> FillExhibits(ArtDb db, 
+            IEnumerable<Exhibit> exhibits)
+        {
+            foreach (var item in exhibits)
+            {
+                item.Gallery = ArtsDb.GetArtsByString(db, item.ArtKeys);
+            }
+            return exhibits;
+        }
+
+        /// <summary>
+        /// Fills an Exhibit with an art gallery.
+        /// </summary>
+        /// <param name="db"></param>
+        /// <param name="exhibit"></param>
+        /// <returns></returns>
+        public static Exhibit FillExhibit(ArtDb db, Exhibit exhibit)
+        {
+            exhibit.Gallery = ArtsDb.GetArtsByString(db, exhibit.ArtKeys);
+            return exhibit;
         }
 
         public static void AddExhibits(ArtDb db, IEnumerable<Exhibit> exhibits)
         {
             db.DbExhibit.AddRange(exhibits);
-        }
-
-        public static void UpdateExhibit(ArtDb db, Exhibit exhibit)
-        {
-            db.Entry(exhibit).State = EntityState.Modified;
-            db.SaveChanges();
         }
 
         public static void DeleteExhibit(ArtDb db, Exhibit exhibit)

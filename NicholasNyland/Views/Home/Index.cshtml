@@ -35,15 +35,15 @@
                     @{ int year = 0; }
                     @foreach (var exhibit in Model.Exhibits)
                     {
-                        if (exhibit.Date.Year != year)
+                        if (exhibit.Key.Year != year)
                         {
-                            year = exhibit.Date.Year;
+                            year = exhibit.Key.Year;
                             <img src="~/Images/triangleside.png" class="arrow"><span class="date">
                                 @year</span><br>
                         }
 
                         <div class="exhibitions">
-                            <p class="show">@Html.ActionLink(exhibit.Name, "Index", exhibit.Name)</p>
+                            <p class="show">@Html.ActionLink(exhibit.Value, "Index", exhibit.Value)</p>
                         </div>
                     }
 
