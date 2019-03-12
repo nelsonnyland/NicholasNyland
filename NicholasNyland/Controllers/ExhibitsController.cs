@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using NicholasNyland.Models;
+using NicholasNyland.Models.Database;
+using NicholasNyland.Models.Models.ViewModels;
 
 namespace NicholasNyland.Controllers
 {
@@ -37,26 +39,40 @@ namespace NicholasNyland.Controllers
         }
 
         // GET: Exhibits/Create
+        [HttpGet]
         public ActionResult Create()
         {
-            return View();
+            ExhibitsViewModel vm = new ExhibitsViewModel();
+            vm.ArtList = ArtsDb.GetCurrentArts_SelectListItems(db);
+            
+            return View(vm);
         }
 
         // POST: Exhibits/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // [Bind(Include = "Name,Date,Location,Gallery")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Name,Date,Location,Gallery")] Exhibit exhibit)
+        public ActionResult Create([Bind(Include = "Name,Date,Location,Selects")]
+                                    ExhibitsViewModel model)
         {
             if (ModelState.IsValid)
             {
-                db.DbExhibit.Add(exhibit);
+                Exhibit ex = new Exhibit()
+                {
+                    Name = model.Name,
+                    Date = model.Date,
+                    Location = model.Location,
+                    Gallery = ArtsDb.GetArtsBySelectListItems(db, model.Selects)
+                };
+
+                db.DbExhibit.Add(ex);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(exhibit);
+            return View(model);
         }
 
         // GET: Exhibits/Edit/5

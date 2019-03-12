@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace NicholasNyland.Models.Database
 {
@@ -169,6 +170,42 @@ namespace NicholasNyland.Models.Database
             Medium type = art.Type;
             IEnumerable<Art> arts = db.DbArt.Where(a => a.Date.Year == date)
                                             .Where(a => a.Type == type);
+            return arts;
+        }
+
+        /// <summary>
+        /// Gets a list of art by current year starting alphabetically.
+        /// Returns a List<SelectListItem> for ListBox in view.
+        /// </summary>
+        /// <param name="db"></param>
+        /// <returns></returns>
+        public static List<SelectListItem> GetCurrentArts_SelectListItems(ArtDb db)
+        {
+            //int year = DateTime.Now.Year;
+            int year = 2018;
+            List<SelectListItem> items = new List<SelectListItem>();
+            IEnumerable<Art> arts = db.DbArt.OrderBy(a => a.Name)
+                                            .Where(a => a.Date.Year == year);
+            foreach (var piece in arts)
+            {
+                items.Add(new SelectListItem
+                {
+                    Text = piece.Name
+                });
+            }
+            return items;
+        }
+
+        /// <summary>
+        /// Gets a list of art by selected list items. Returns a List<Art>.
+        /// </summary>
+        /// <param name="db"></param>
+        /// <param name="selects"></param>
+        /// <returns></returns>
+        public static List<Art> GetArtsBySelectListItems(ArtDb db, IEnumerable<SelectListItem> selects)
+        {
+            List<string> names = (List<string>)selects.Select(a => a.Text);
+            List<Art> arts = (List<Art>)db.DbArt.Where(a => names.Contains(a.Name));
             return arts;
         }
 

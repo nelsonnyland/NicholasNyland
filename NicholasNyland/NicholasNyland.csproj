@@ -218,7 +218,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="Images\Aspect Ratio.txt" />
     <Content Include="Images\FirstSignature.jpg" />
-    <Content Include="Images\SecondSignature.jpg" />
     <Content Include="Images\triangledown.png" />
     <Content Include="Images\triangleside.png" />
     <Content Include="Images\triangleup.png" />
