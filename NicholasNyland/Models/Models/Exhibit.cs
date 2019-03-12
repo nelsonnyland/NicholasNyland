@@ -12,6 +12,7 @@ namespace NicholasNyland.Models
     {
         [Key]
         public string Name { get; set; }
+        [DataType(DataType.Date)]
         public DateTime Date { get; set; }
         public string Location { get; set; }
         public List<Art> Gallery { get; set; }        

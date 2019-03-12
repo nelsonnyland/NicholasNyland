@@ -1,14 +1,20 @@
+@font-face {
+    font-family: "freestyle script";
+    src: url("/fonts/FREESCPT.TTF") format("truetype"), 
+         url(FREESCPT.TTF) format("truetype");
+}
+
+@font-face {
+    font-family: "Pacifico";
+    src: url("https://fonts.googleapis.com/css?family=Pacifico");
+}
+
 .accordion {
     cursor: pointer;
     font-size: 200%;
     margin: 1%;
     
     /* transition: 0.4s; */
-}
-
-.aside-element {
-    font-size: 200%;
-    margin: 1%;
 }
 
 .arrow {
@@ -23,14 +29,20 @@ aside {
     float: left;
     width: 10%;
     min-width: 70px;
-    padding-right: 2%;
+    padding-right: 1%;
+    text-align: right;
+}
+
+.aside-element {
+    font-size: 200%;
+    margin: 1%;
 }
 
 #bottom-container {
     display: flex;
     flex-wrap: wrap;
     
-    /* flex-shrink: 1; */
+    /*flex-shrink: 1;*/ 
     /* flex-grow: 1; */
     /* justify-content: center; */
 }
@@ -50,7 +62,7 @@ aside {
 }
 
 .date {
-    cursor: default;
+    cursor: pointer;
     padding: 0;
     margin: 0;
     
@@ -70,21 +82,26 @@ aside {
     animation-duration: 1.5s;
 }
 
-h1 {
-    text-align: center;
-    font-size: 4em;
-    margin: 0;
+.h1 {
+    /*text-align: center;*/
+    /*font-size: 4em;*/
+    /*width: 13em;*/
+    /*height: 5em;*/
+    height: auto;
+    max-width: 80%;
+    padding-left: 20%;
+    /*margin: 0;*/
 }
 
 .header {
-    font-family: "freestyle script", "Kaufmann Bd BT";
+    font-family: "freestyle script", "Pacifico";
 }
 
 .news-img {
     cursor: pointer;
     width: 100%;
     height: 100%;
-    padding-left: 10%;
+    padding-left: 5%;
 }
 
 .news-caption {
@@ -128,4 +145,32 @@ h1 {
 .thumbnail {    
     width: 100%;
     height: 100%;
+    margin: 3%;
+}
+
+/* firefox */
+@-moz-document url-prefix() {
+    .thumbnail {        
+        width: auto;
+        height: auto;
+    }
+}
+
+/* edge */
+@supports (-ms-ime-align: auto) {
+    .thumbnail {        
+        max-height: 20%;
+        margin: auto;
+    }
+}
+
+/* IE */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .header {
+        font-size: 0.6em;
+    }
+    .thumbnail {
+        max-height: 20%;
+        margin: auto;
+    }
 }

@@ -17,6 +17,10 @@ function setEventListener() {
     for (var i = 0; i < arrows.length; i++) {
         arrows[i].onclick = toggleArrow;
     }
+    var dates = document.getElementsByClassName("date");
+    for (var i = 0; i < dates.length; i++) {
+        dates[i].onclick = toggleArrow;
+    }
     var news = document.getElementsByClassName("news");
     for (var i = 0; i < news.length; i++) {
         news[i].onclick = newslink;
@@ -46,6 +50,7 @@ function slideshow(e) {
     }
     var image = document.createElement("img");
     image.src = e.target.src;
+    image.classList += "fill";
     div.appendChild(image);
 }
 
@@ -55,11 +60,14 @@ function slideshow(e) {
  */
 function toggleArrow(e) {
     var arrow = e.target;
+    if (arrow.className == "date") {
+        arrow = arrow.previousElementSibling;
+    }
     if (arrow.className == "arrow" ||
         arrow.className == "arrow right") {
         arrow.classList.remove("right");
         arrow.classList.toggle("down");
-        arrow.src = "Images/triangledown.png";
+        arrow.src = "/Images/triangledown.png";
         var ex = arrow.nextElementSibling
                       .nextElementSibling
                       .nextElementSibling;
@@ -67,7 +75,7 @@ function toggleArrow(e) {
     } else {
         arrow.classList.remove("down");
         arrow.classList.toggle("right");
-        arrow.src = "Images/triangleside.png";
+        arrow.src = "/Images/triangleside.png";
         var ex = arrow.nextElementSibling
                       .nextElementSibling
                       .nextElementSibling;
@@ -83,6 +91,7 @@ function appendImage() {
     var image = document.createElement("img");
     var slides = document.getElementsByClassName("thumbnail");
     image.src = slides[0].src;
+    image.classList += "fill";
     div.appendChild(image);
 }
 
