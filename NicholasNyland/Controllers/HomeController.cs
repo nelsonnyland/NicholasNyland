@@ -25,39 +25,28 @@ namespace NicholasNyland.Controllers
 
             // Exhibits
             ArtViewModel vm = new ArtViewModel();            
-            vm.Exhibits = ExhibitsDb.GetAllExhibits(db);
-            vm.Paintings = ArtsDb.GetPaintingMap(db);
-            vm.Sculptures = ArtsDb.GetSculptureMap(db);
+            vm.Exhibits = ExhibitsDb.GetExhibitMap(db);
+            vm.Paintings = ArtsDb.GetAllPaintings(db);
+            vm.Sculptures = ArtsDb.GetAllSculptures(db);
 
             // Gallery
-            Exhibit show = ExhibitsDb.GetExhibit(db, id);
-            if (show != null)
+            if (id != null)
             {
+                Exhibit show = ExhibitsDb.GetExhibit(db, id);
+                if (show != null)
+                {
+                    vm.Gallery = show.Gallery;
+                }
+                else
+                {
+                    vm.Gallery = ArtsDb.GetArtsByName(db, id);
+                }
+            }
+            else
+            {
+                Exhibit show = ExhibitsDb.GetNews(db);
                 vm.Gallery = show.Gallery;
             }
-
-            return View(vm);
-        }
-
-        [ActionName("Gallery")]
-        public ActionResult Index(Art art)
-        {
-            // news data
-            Exhibit ex = ExhibitsDb.GetNews(db);
-            if (ex != null)
-            {
-                ViewBag.NewsPath = ex.Gallery.Last().Path;
-                ViewBag.NewsName = ex.Name;
-            }
-
-            // Exhibits, Paintings, Sculptures
-            ArtViewModel vm = new ArtViewModel();
-            vm.Exhibits = ExhibitsDb.GetAllExhibits(db);
-            vm.Paintings = ArtsDb.GetPaintingMap(db);
-            vm.Sculptures = ArtsDb.GetSculptureMap(db);
-
-            // Gallery
-            vm.Gallery = ArtsDb.GetArtsByDate(db, art);
 
             return View(vm);
         }

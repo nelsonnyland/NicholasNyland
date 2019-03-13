@@ -15,13 +15,7 @@ namespace NicholasNyland.Models
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }
         public string Location { get; set; }
-        public List<Art> Gallery { get; set; }        
-
-        public bool Equals(Exhibit ev)
-        {
-            return this.Name == ev.Name &&
-                   this.Date == ev.Date &&
-                   this.Location == ev.Location;
-        }
+        public string ArtKeys { get; set; }
+        public IEnumerable<Art> Gallery { get; set; }        
     }
 }

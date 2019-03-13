@@ -11,6 +11,14 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dt>
+            @Html.DisplayFor(model => model.Name)
+        </dt>
+        
+        <dt>
             @Html.DisplayNameFor(model => model.Date)
         </dt>
 
@@ -26,9 +34,15 @@
             @Html.DisplayFor(model => model.Location)
         </dd>
 
+        <dd>
+            @foreach (var item in Model.Gallery)
+            {
+                @Html.Display(item.Name)<br />
+            }
+        </dd>
+
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Name }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

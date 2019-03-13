@@ -7,7 +7,6 @@ using System.Web.Mvc;
 
 namespace NicholasNyland.Models.Models.ViewModels
 {
-    //[Bind(Include = "Name,Date,Location,Selects")]
     public class ExhibitsViewModel
     {
         public string Name { get; set; }

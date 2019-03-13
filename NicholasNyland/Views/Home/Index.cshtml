@@ -35,15 +35,16 @@
                     @{ int year = 0; }
                     @foreach (var exhibit in Model.Exhibits)
                     {
-                        if (exhibit.Date.Year != year)
+                        if (exhibit.Key.Year != year)
                         {
-                            year = exhibit.Date.Year;
+                            year = exhibit.Key.Year;
                             <img src="~/Images/triangleside.png" class="arrow"><span class="date">
                                 @year</span><br>
                         }
 
                         <div class="exhibitions">
-                            <p class="show">@Html.ActionLink(exhibit.Name, "Index", exhibit.Name)</p>
+                            <p class="show">@Html.ActionLink(exhibit.Value, "Index", new { id = exhibit.Value }, htmlAttributes: new { @class = "show" })
+                            </p>
                         </div>
                     }
 
@@ -55,11 +56,12 @@
                     @{ year = 0; }
                     @foreach (var painting in Model.Paintings)
                     {
-                        if (painting.Key.Year != year)
+                        if (painting.Date.Year != year)
                         {
-                            year = painting.Key.Year;
-                            <img src="~/Images/triangleside.png" class="arrow"><span class="date">
-                                @Html.ActionLink(year + "", "Index", painting)</span><br>
+                            year = painting.Date.Year;
+                            <span class="date">
+                                @Html.ActionLink(year + "", "Index", new { id = painting.Name }, htmlAttributes: new { @class = "show" })
+                            </span><br>
                         }
                     }
 
@@ -71,11 +73,11 @@
                     @{ year = 0; }
                     @foreach (var sculpture in Model.Sculptures)
                     {
-                        if (sculpture.Key.Year != year)
+                        if (sculpture.Date.Year != year)
                         {
-                            year = sculpture.Key.Year;
-                            <img src="~/Images/triangleside.png" class="arrow"><span class="date">
-                                @Html.ActionLink(year + "", "Index", sculpture)
+                            year = sculpture.Date.Year;
+                            <span class="date">
+                                @Html.ActionLink(year + "", "Index", new { id = sculpture.Name }, htmlAttributes: new { @class = "show" })
                             </span><br>
                         }
                     }
