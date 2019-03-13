@@ -40,7 +40,11 @@ namespace NicholasNyland.Models.Database
         public static Exhibit GetNews(ArtDb db)
         {
             Exhibit ex = db.DbExhibit.OrderByDescending(e => e.Date).FirstOrDefault();
-            return FillExhibit(db, ex);
+            if (ex != null)
+            {
+                return FillExhibit(db, ex);
+            }
+            return null;
         }
 
         /// <summary>

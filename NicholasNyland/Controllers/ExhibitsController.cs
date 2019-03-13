@@ -20,7 +20,7 @@ namespace NicholasNyland.Controllers
         // GET: Exhibits
         public ActionResult Index()
         {
-            return View(db.DbExhibit.ToList());
+            return View(ExhibitsDb.GetAllExhibits(db));
         }
 
         // GET: Exhibits/Details/5

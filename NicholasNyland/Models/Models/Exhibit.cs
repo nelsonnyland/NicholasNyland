@@ -16,6 +16,6 @@ namespace NicholasNyland.Models
         public DateTime Date { get; set; }
         public string Location { get; set; }
         public string ArtKeys { get; set; }
-        public IList<Art> Gallery { get; set; }        
+        public IEnumerable<Art> Gallery { get; set; }        
     }
 }

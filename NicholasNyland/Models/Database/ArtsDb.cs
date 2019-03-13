@@ -102,7 +102,8 @@ namespace NicholasNyland.Models.Database
         /// <returns></returns>
         public static IDictionary<DateTime, IEnumerable<Art>> GetAllSculptures(ArtDb db)
         {
-            IEnumerable<Art> sculptures = db.DbArt.Where(p => p.Type == Medium.SCULPTURE);
+            IEnumerable<Art> sculptures = db.DbArt.OrderByDescending(e => e.Date)
+                                                  .Where(p => p.Type == Medium.SCULPTURE);
             
             IDictionary<DateTime, IEnumerable<Art>> set = 
                 new Dictionary<DateTime, IEnumerable<Art>>();
@@ -140,7 +141,8 @@ namespace NicholasNyland.Models.Database
         /// <returns></returns>
         public static IDictionary<DateTime, Medium> GetSculptureMap(ArtDb db)
         {
-            IEnumerable<Art> sculptures = db.DbArt.Where(p => p.Type == Medium.SCULPTURE);
+            IEnumerable<Art> sculptures = db.DbArt.OrderByDescending(e => e.Date)
+                                                  .Where(p => p.Type == Medium.SCULPTURE);
 
             IDictionary<DateTime, Medium> set =
                 new Dictionary<DateTime, Medium>();

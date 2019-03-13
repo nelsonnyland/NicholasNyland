@@ -191,6 +191,10 @@
     <Compile Include="Migrations\ArtMigrations\201903120352031_ExhbitUpdate.Designer.cs">
       <DependentUpon>201903120352031_ExhbitUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\ArtMigrations\201903122158196_ExhibitUpdate2.cs" />
+    <Compile Include="Migrations\ArtMigrations\201903122158196_ExhibitUpdate2.Designer.cs">
+      <DependentUpon>201903122158196_ExhibitUpdate2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\ArtMigrations\Configuration.cs" />
     <Compile Include="Migrations\UserMigrations\201902260132429_Init.cs" />
     <Compile Include="Migrations\UserMigrations\201902260132429_Init.Designer.cs">
@@ -199,6 +203,7 @@
     <Compile Include="Migrations\UserMigrations\Configuration.cs" />
     <Compile Include="Models\Database\ArtsDb.cs" />
     <Compile Include="Models\Database\ExhibitsDb.cs" />
+    <Compile Include="Models\Models\ViewModels\AccountHomeViewModel.cs" />
     <Compile Include="Models\Models\ViewModels\AccountViewModels.cs" />
     <Compile Include="Models\Database\ArtDb.cs" />
     <Compile Include="Models\Database\UserDb.cs" />
@@ -309,6 +314,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\ArtMigrations\201903120352031_ExhbitUpdate.resx">
       <DependentUpon>201903120352031_ExhbitUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\ArtMigrations\201903122158196_ExhibitUpdate2.resx">
+      <DependentUpon>201903122158196_ExhibitUpdate2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\UserMigrations\201902260132429_Init.resx">
       <DependentUpon>201902260132429_Init.cs</DependentUpon>

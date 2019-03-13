@@ -1,7 +1,33 @@
-﻿
+﻿@model NicholasNyland.Models.Models.ViewModels.AccountHomeViewModel
+
 @{
-    ViewBag.Title = "Home";
+    ViewBag.Title = "Account Home";
 }
 
-<h2>Home</h2>
+<h2>Account Home</h2>
 
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NumAccounts)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumArt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumExhibits)
+        </th>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.DisplayFor(model => model.NumAccounts)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.NumArt)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.NumExhibits)
+        </td>
+    </tr>
+</table>

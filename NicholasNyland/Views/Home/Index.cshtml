@@ -43,7 +43,8 @@
                         }
 
                         <div class="exhibitions">
-                            <p class="show">@Html.ActionLink(exhibit.Value, "Index", exhibit.Value)</p>
+                            <p class="show">@Html.ActionLink(exhibit.Value, "Index", exhibit.Value, htmlAttributes: new { @class = "show" })
+                            </p>
                         </div>
                     }
 
@@ -58,8 +59,9 @@
                         if (painting.Key.Year != year)
                         {
                             year = painting.Key.Year;
-                            <img src="~/Images/triangleside.png" class="arrow"><span class="date">
-                                @Html.ActionLink(year + "", "Index", painting)</span><br>
+                            <span class="date">
+                                @Html.ActionLink(year + "", "Index", painting, htmlAttributes: new { @class = "show" })
+                            </span><br>
                         }
                     }
 
@@ -74,8 +76,8 @@
                         if (sculpture.Key.Year != year)
                         {
                             year = sculpture.Key.Year;
-                            <img src="~/Images/triangleside.png" class="arrow"><span class="date">
-                                @Html.ActionLink(year + "", "Index", sculpture)
+                            <span class="date">
+                                @Html.ActionLink(year + "", "Index", sculpture, htmlAttributes: new { @class = "show" })
                             </span><br>
                         }
                     }

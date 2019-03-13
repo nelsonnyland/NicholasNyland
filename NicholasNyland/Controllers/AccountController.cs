@@ -9,12 +9,17 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using NicholasNyland.Models;
+using NicholasNyland.Models.Database;
+using NicholasNyland.Models.Models.ViewModels;
 
 namespace NicholasNyland.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class AccountController : Controller
     {
+        ArtDb artDb = new ArtDb();
+        UserDb userDb = new UserDb();
+
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -50,6 +55,18 @@ namespace NicholasNyland.Controllers
             {
                 _userManager = value;
             }
+        }
+
+        public ActionResult Index()
+        {
+            AccountHomeViewModel model = new AccountHomeViewModel
+            {
+                NumAccounts = userDb.Users.Count(),
+                NumArt = artDb.DbArt.Count(),
+                NumExhibits = artDb.DbExhibit.Count()
+            };
+
+            return View(model);
         }
 
         //
@@ -93,11 +110,6 @@ namespace NicholasNyland.Controllers
                     ModelState.AddModelError("", "Invalid login attempt.");
                     return View(model);
             }
-        }
-
-        public ActionResult Index()
-        {
-            return View();
         }
 
         //
