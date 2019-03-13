@@ -1,7 +1,37 @@
-﻿@model NicholasNyland.Models.Exhibit
+﻿@model IEnumerable<NicholasNyland.Models.Exhibit>
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_NewsLayout.cshtml";
 }
 
-news
+<div class="top">
+    <p class="font home">@Html.ActionLink("Nicholas Nyland", "Index", null, new { @class = "home"})</p>
+    <h1 class="font header">News</h1>
+</div>
+
+@foreach (var item in Model)
+{
+    var first = item.Gallery.First();
+    var firstPicture = first.Path;
+
+    <div class="card">
+
+        <table class="table">
+            <tr>
+                <th>
+                    <img src="@Html.DisplayFor(modelItem => firstPicture)"
+                         class="img" />
+                </th>
+                <th>
+                    <h2 class="font card-title">@item.Name</h2>
+                </th>
+                <th>
+                    <p class="font card-item">@Html.DisplayFor(modelItem => item.Date)</p>
+                </th>
+                <th>
+                    <p class="font card-item">@Html.DisplayFor(modelItem => item.Location)</p>
+                </th>
+            </tr>
+        </table>
+    </div>
+}
