@@ -31,13 +31,24 @@ namespace NicholasNyland.Models.Database
         }
 
         /// <summary>
+        /// Gets all paintings from Art db and sorts them into a list.
+        /// </summary>
+        /// <param name="db"></param>
+        /// <returns></returns>
+        public static IEnumerable<Art> GetAllPaintings(ArtDb db)
+        {
+            return db.DbArt.OrderByDescending(e => e.Date).Where(p => p.Type == Medium.PAINTING);
+        }
+
+        /// <summary>
         /// Gets all paintings from Art db and sorts them into a key value pair by date.
         /// </summary>
         /// <param name="db"></param>
         /// <returns></returns>
-        public static IDictionary<DateTime, IEnumerable<Art>> GetAllPaintings(ArtDb db)
+        public static IDictionary<DateTime, IEnumerable<Art>> GetAllPaintingsMap(ArtDb db)
         {
-            IEnumerable<Art> paintings = db.DbArt.Where(p => p.Type == Medium.PAINTING);
+            IEnumerable<Art> paintings = db.DbArt.OrderByDescending(e => e.Date)
+                                                 .Where(p => p.Type == Medium.PAINTING);
             
             IDictionary<DateTime, IEnumerable<Art>> set = 
                 new Dictionary<DateTime, IEnumerable<Art>>();
@@ -96,11 +107,21 @@ namespace NicholasNyland.Models.Database
         }
 
         /// <summary>
+        /// Gets all sculptures from Art db and sorts them into a list.
+        /// </summary>
+        /// <param name="db"></param>
+        /// <returns></returns>
+        public static IEnumerable<Art> GetAllSculptures(ArtDb db)
+        {
+            return db.DbArt.OrderByDescending(e => e.Date).Where(p => p.Type == Medium.SCULPTURE);
+        }
+
+        /// <summary>
         /// Gets all sculptures from Art db and sorts them into a key value pair by date.
         /// </summary>
         /// <param name="db"></param>
         /// <returns></returns>
-        public static IDictionary<DateTime, IEnumerable<Art>> GetAllSculptures(ArtDb db)
+        public static IDictionary<DateTime, IEnumerable<Art>> GetAllSculpturesMap(ArtDb db)
         {
             IEnumerable<Art> sculptures = db.DbArt.OrderByDescending(e => e.Date)
                                                   .Where(p => p.Type == Medium.SCULPTURE);
@@ -162,7 +183,23 @@ namespace NicholasNyland.Models.Database
         }
 
         /// <summary>
-        /// Gets a list of art matching date and type.
+        /// Gets a list of art by name that match the date and type.
+        /// </summary>
+        /// <param name="art"></param>
+        /// <returns></returns>
+        public static IEnumerable<Art> GetArtsByName(ArtDb db, string name)
+        {
+            Art art = db.DbArt.Find(name);
+            int date = art.Date.Year;
+            Medium type = art.Type;
+            IEnumerable<Art> arts = db.DbArt.OrderByDescending(e => e.Date)
+                                            .Where(a => a.Date.Year == date)
+                                            .Where(a => a.Type == type);
+            return arts;
+        }
+
+        /// <summary>
+        /// Gets a list of art by date with matching date and type.
         /// </summary>
         /// <param name="art"></param>
         /// <returns></returns>

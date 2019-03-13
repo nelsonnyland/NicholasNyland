@@ -88,7 +88,10 @@ namespace NicholasNyland.Models.Database
         /// <returns></returns>
         public static Exhibit FillExhibit(ArtDb db, Exhibit exhibit)
         {
-            exhibit.Gallery = ArtsDb.GetArtsByString(db, exhibit.ArtKeys);
+            if (exhibit != null)
+            {
+                exhibit.Gallery = ArtsDb.GetArtsByString(db, exhibit.ArtKeys);
+            }
             return exhibit;
         }
 
