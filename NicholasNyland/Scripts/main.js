@@ -49,6 +49,7 @@ function slideshow(e) {
         div.removeChild(div.firstChild);        
     }
     var image = document.createElement("img");
+    image.id = "img";
     image.src = e.target.src;
     image.classList += "fill";
     div.appendChild(image);
@@ -90,6 +91,7 @@ function appendImage() {
     var div = document.getElementById("slide");
     var image = document.createElement("img");
     var slides = document.getElementsByClassName("thumbnail");
+    image.id = "img";
     image.src = slides[0].src;
     image.classList += "fill";
     div.appendChild(image);

@@ -13,6 +13,7 @@
     <link rel="favicon" href="images/favicon.ico">
     <meta charset="utf-8">
     <meta name="nicholas nyland" content="Nicholas Nyland">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link rel="stylesheet" media="screen and (min-width: 900px)" href="@Url.Content("~/Styles/desktop.css")">
     <link rel="stylesheet" media="screen and (max-width: 900px)" href="@Url.Content("~/Styles/mobile.css")">
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
@@ -20,10 +21,10 @@
 
 <body>
     <header>
-        <img src="~/Images/FirstSignature.jpg" class="h1" width="400" height="100" />
+        <img src="~/Images/FirstSignature.jpg" class="h1" />
     </header>
     <main>
-        <aside class="header">
+        <aside id="aside" class="header">
             <nav>
                 <h2 class="accordion news">News</h2>
                 <img src="@ViewBag.NewsPath" class="news-img news">
@@ -92,7 +93,7 @@
         </aside>
         <section id="container">
             <figure class="slideshow">
-                <div id="slide" class="fade">
+                <div id="slide">
 
                 </div>
             </figure>
