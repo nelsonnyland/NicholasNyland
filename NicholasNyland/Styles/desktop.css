@@ -13,8 +13,6 @@
     cursor: pointer;
     font-size: 2em;
     margin: 0.2em;
-    
-    /* transition: 0.4s; */
 }
 
 .arrow {
@@ -27,10 +25,7 @@
 
 aside {
     float: left;
-    /*width: 150px;*/
     max-width: 150px;
-    /*padding-right: 1em;*/
-    /*margin: 0;*/
     text-align: right;
 }
 
@@ -41,11 +36,7 @@ aside {
 
 #bottom-container {
     display: flex;
-
-    /* flex-wrap: wrap; */
     flex-shrink: 1; 
-    /*flex-grow: 1;*/ 
-    /*justify-content: center;*/ 
     padding-left: 1%;
 }
 
@@ -58,8 +49,6 @@ aside {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    /*text-align: center;*/ 
-    /*justify-content: center;*/ 
 }
 
 .date {
@@ -83,20 +72,13 @@ aside {
 
 .fill {
     object-fit: cover;
-    /*min-width: 950px;*/
     width: 90%;
     max-width: 950px;
     height: 90%;
 }
 
 .h1 {
-    /*font-size: 4em;*/
-    /*text-align: center;*/
-    /*max-width: 100px;
-    max-height: 100px;*/
-    /*padding-left: 450px;*/
     padding-left: 20%;
-    /*margin: 0;*/
 }
 
 .header {
@@ -145,31 +127,15 @@ aside {
 
 .slideshow {
     padding-left: 1%;
-
-    /*max-width: 1000px;    
-    transform: scale(1, 1);
-    -ms-transform: scale(1, 1);
-    -webkit-transform: scale(1, 1); 
-    width: 500px; auto
-    height: 500px; auto
-    object-fit: contain fill;*/ 
 } 
 
 
 .thumbnail {
     cursor: pointer;
-    
-    /*max-width: 180px;*/
-    /*max-width: 225px;*/
     max-width: 215px;
     width: 20%;
-    
-    /*max-height: 135px;*/
-    /*max-height: 169px;*/
     max-height: 161px;
     height: 60%;
-    
-    /*margin: 10px;*/
     margin: 10px;    
 }
 

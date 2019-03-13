@@ -13,8 +13,6 @@
     cursor: pointer;
     font-size: 200%;
     margin: 1%;
-    
-    /* transition: 0.4s; */
 }
 
 .arrow {
@@ -41,10 +39,6 @@ aside {
 #bottom-container {
     display: flex;
     flex-wrap: wrap;
-    
-    /*flex-shrink: 1;*/ 
-    /* flex-grow: 1; */
-    /* justify-content: center; */
 }
 
 .caption {
@@ -55,18 +49,12 @@ aside {
 #container {
     display: flex;
     flex-direction: column;
-    
-    /* flex-shrink: 1; */
-    /* text-align: center; */
-    /* justify-content: center; */
 }
 
 .date {
     cursor: pointer;
     padding: 0;
     margin: 0;
-    
-    /* padding-bottom: 1em; */
 }
 
 .exhibitions {
@@ -83,14 +71,9 @@ aside {
 }
 
 .h1 {
-    /*text-align: center;*/
-    /*font-size: 4em;*/
-    /*width: 13em;*/
-    /*height: 5em;*/
     height: auto;
     max-width: 80%;
     padding-left: 20%;
-    /*margin: 0;*/
 }
 
 .header {
@@ -132,15 +115,6 @@ aside {
 
 .slideshow {
     display: none;
-    
-    /* max-width: 1000px; */
-    /* flex-shrink: 1; */
-    /* transform: scale(1, 1);
-    -ms-transform: scale(1, 1);
-    -webkit-transform: scale(1, 1); */
-    /* width: 500px; auto
-    height: 500px; auto */
-    /* object-fit: contain fill; */
 }
 
 .thumbnail {    
