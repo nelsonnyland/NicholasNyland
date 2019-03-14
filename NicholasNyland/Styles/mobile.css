@@ -43,6 +43,10 @@ aside {
     flex-wrap: wrap;
 }
 
+.button {
+    display: none;
+}
+
 .caption {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 0.8em;
@@ -66,9 +70,11 @@ aside {
 }
 
 .h1 {
-    height: auto;
-    max-width: 80%;
-    padding-left: 20%;
+    object-fit: contain;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
 
 .header {

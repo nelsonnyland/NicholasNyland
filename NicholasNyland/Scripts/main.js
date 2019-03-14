@@ -2,6 +2,89 @@ console.log("MAIN CONNECTED");
 "use strict";
 
 /**
+ * Slide index is the beginning index a 4 thumbnail set in an 
+ * array of thumbnails.
+ * */
+var slideIndex = 0;
+
+/**
+ * Global array of slides.
+ * */
+var slides = document.getElementsByClassName("thumbnail");
+
+/**
+ * Handles side pop-out menu animation.
+ * */
+function accordion() {    
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+        panel.style.display = "none";
+    } else {
+        panel.style.display = "block";
+    }
+}
+
+/**
+ * Appends main image to carousel.
+ * */
+function appendImage() {
+    var div = document.getElementById("slide");
+    var image = document.createElement("img");
+    image.id = "img";
+    image.src = slides[0].src;
+    image.classList += "fill";
+    div.appendChild(image);
+}
+
+/**
+ * Sets thumbnails by beginning index.
+ * @param {any} n
+ */
+function changeThumbnails(slideIndex) {
+    for (var i = 0; i < slides.length; ++i) {
+        slides[i].style.display = "none";
+    }
+    // get correct end index
+    var space = (slides.length - 1) - slideIndex;
+    if (space < 4) {
+        var size = slides.length;
+    } else {
+        var size = slideIndex + 4;
+    }
+    // show correct set of 4 thumbnails
+    for (var i = slideIndex; i < size; ++i) {
+        slides[i].style.display = "block";
+    }
+    // |       |       |
+    // 0 1 2 3 4 5 6 7 8 9
+}
+
+/**
+ * Advances slides backwards and forwards.
+ */
+function getPreviousSlides() {
+    if (slideIndex > 3) {
+        slideIndex -= 4;
+        changeThumbnails(slideIndex);
+    }
+}
+
+/**
+ * Advances slides backwards and forwards.
+ */
+function getNextSlides() {
+    if ((slideIndex + 4) > (slides.length - 1)) {
+        slideIndex = slides.length - 4;
+        if (slideIndex < 0) {
+            slideIndex = 0;
+        }
+    } else {
+        slideIndex += 4;
+        changeThumbnails(slideIndex);
+    }
+}
+
+/**
  * Adds event listeners to elements on page.
  */
 function setEventListener() {
@@ -9,7 +92,6 @@ function setEventListener() {
     for (var i = 0; i < acc.length; i++) {
         acc[i].onclick = accordion;
     }
-    var slides = document.getElementsByClassName("thumbnail");
     for (var i = 0; i < slides.length; i++) {
         slides[i].onclick = slideshow;
     }
@@ -21,17 +103,18 @@ function setEventListener() {
     for (var i = 0; i < dates.length; i++) {
         dates[i].onclick = toggleArrow;
     }
+    var prev = document.getElementById("prev");
+    prev.onclick = getPreviousSlides;
+    var next = document.getElementById("next");
+    next.onclick = getNextSlides;
 }
 
 /**
- * Handles side pop-out menu animation.
+ * Sets thumbnails on load.
  * */
-function accordion() {    
-    var panel = this.nextElementSibling;
-    if (panel.style.display === "block") {
-        panel.style.display = "none";
-    } else {
-        panel.style.display = "block";
+function setThumbnails() {
+    for (var i = 4; i < slides.length; ++i) {
+        slides[i].style.display = "none";
     }
 }
 
@@ -80,21 +163,9 @@ function toggleArrow(e) {
     }
 }
 
-/**
- * Appends main image to carousel.
- * */
-function appendImage() {
-    var div = document.getElementById("slide");
-    var image = document.createElement("img");
-    var slides = document.getElementsByClassName("thumbnail");
-    image.id = "img";
-    image.src = slides[0].src;
-    image.classList += "fill";
-    div.appendChild(image);
-}
-
 window.onload = function() {
     appendImage();
+    setThumbnails();
     setEventListener();
 }
 

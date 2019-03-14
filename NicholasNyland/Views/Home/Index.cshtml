@@ -25,6 +25,7 @@
     <main>
         <aside id="aside" class="header">
             <nav>
+                
                 @* News *@
                 <a href="@Url.Action("News", "Home")" class="news">
                     <h2 class="accordion news">News</h2>
@@ -102,17 +103,18 @@
             </figure>
             <figure id="bottom-container">
 
+                <img id="prev" class="button" src="~/Images/triangleleft.png">
+
                 @* Gallery *@
                 @if (Model.Gallery != null)
                 {
-                    int count = 0;
                     foreach (var thumbnail in Model.Gallery)
                     {
                         <img class="thumbnail" src="@Html.DisplayFor(item => thumbnail.Path)">
-
-                        if (++count == 4) { break; }
                     }
                 }
+
+                <img id="next" class="button" src="~/Images/triangleright.png">
 
             </figure>
         </section>
