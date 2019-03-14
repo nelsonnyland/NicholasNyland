@@ -11,6 +11,7 @@
 }
 
 .accordion {
+    text-align: left;
     cursor: pointer;
     font-size: 200%;
     margin: 1%;
@@ -29,7 +30,7 @@ aside {
     width: 10%;
     min-width: 70px;
     padding-right: 1%;
-    text-align: right;
+    text-align: left;
 }
 
 .aside-element {
@@ -74,6 +75,11 @@ aside {
     font-family: "freestyle script";
 }
 
+.news {
+    text-decoration: none;
+    color: inherit;
+}
+
 .news-img {
     cursor: pointer;
     width: 100%;
@@ -101,10 +107,10 @@ aside {
 
 .show {
     cursor: pointer;
-    padding-top: 0.5em;
-    padding-left: 1em;
-    margin: 0;
     text-decoration: none;
+    color: inherit;
+    padding-top: 0.5em;
+    margin: 0;
 }
 
 .slideshow {

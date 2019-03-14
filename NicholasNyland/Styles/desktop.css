@@ -11,7 +11,7 @@
 
 .accordion {
     cursor: pointer;
-    font-size: 2em;
+    font-size: 2.5em;
     margin: 0.2em;
 }
 
@@ -30,7 +30,8 @@
 }
 
 .aside-element {
-    font-size: 2em;
+    font-size: 2.3em;
+    padding-right: 0.1em;
     margin: 0.2em;
 }
 
@@ -44,6 +45,8 @@
 .caption {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 0.8em;
+    padding-right: 0.1em;
+    margin: 0.2em;
 }
 
 #container {
@@ -54,6 +57,7 @@
 
 .date {
     cursor: pointer;
+    font-size: 1.2em;
     padding: 0;
     margin: 0;
 }
@@ -80,6 +84,7 @@
 
 .header {
     font-family: "freestyle script";
+    font-weight: bold;
     user-select: none;
     -ms-user-select: none;
     -moz-user-select: none;
@@ -92,6 +97,11 @@
     max-width: 650px;
     max-height: 650px;
     justify-content: center;
+}
+
+.news {
+    text-decoration: none;
+    color: inherit;
 }
 
 .news-img {
@@ -121,11 +131,12 @@
 
 .show {
     cursor: pointer;
+    text-decoration: none;
+    color: inherit;
     font-size: 1em;
     padding-top: 0.5em;
-    padding-left: 1em;
+    padding-left: 0.5em;
     margin: 0;
-    text-decoration: none;
 }
 
 .slideshow {

@@ -25,9 +25,13 @@
     <main>
         <aside id="aside" class="header">
             <nav>
-                <h2 class="accordion news">News</h2>
-                <img src="@ViewBag.NewsPath" class="news-img news">
-                <p class="accordion news-element news-caption news">@ViewBag.NewsName</p>
+                @* News *@
+                <a href="@Url.Action("News", "Home")" class="news">
+                    <h2 class="accordion news">News</h2>
+                    <img src="@ViewBag.NewsPath" class="news-img news">
+                    <p class="accordion news-element news-caption news">@ViewBag.NewsName</p>
+                </a>
+                
                 <h2 class="accordion">Exhibitions</h2>
                 <div class="panel">
                     
@@ -84,7 +88,7 @@
 
                 </div>
                 <h2 class="aside-element">About</h2>
-                <p class="aside-element caption">
+                <p class="caption">
                     Nicholas Nyland is a local Puget Sound artist that is currently
                     residing in Tacoma, WA.
                 </p>

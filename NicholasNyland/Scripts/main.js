@@ -21,10 +21,6 @@ function setEventListener() {
     for (var i = 0; i < dates.length; i++) {
         dates[i].onclick = toggleArrow;
     }
-    var news = document.getElementsByClassName("news");
-    for (var i = 0; i < news.length; i++) {
-        news[i].onclick = newslink;
-    }
 }
 
 /**
@@ -95,10 +91,6 @@ function appendImage() {
     image.src = slides[0].src;
     image.classList += "fill";
     div.appendChild(image);
-}
-
-function newslink() {
-    location.href = "Home/News";
 }
 
 window.onload = function() {
