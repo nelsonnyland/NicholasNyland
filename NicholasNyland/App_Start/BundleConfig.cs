@@ -29,9 +29,6 @@ namespace NicholasNyland
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
 
-            bundles.Add(new StyleBundle("~/Content/News/css").Include(
-                      "~/Content/News/site.css"));
-
             bundles.Add(new StyleBundle("~/Styles/css").Include(
                       "~/Styles/desktop.css",
                       "~/Styles/mobile.css"));

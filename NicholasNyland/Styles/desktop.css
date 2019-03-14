@@ -1,12 +1,12 @@
-@font-face {
-    font-family: "freestyle script";
-    src: url("/fonts/FREESCPT.TTF") format("truetype"), 
-         url(FREESCPT.TTF) format("truetype");
-}
+/* ~/Home/Index */
 
 @font-face {
-    font-family: "Pacifico";
-    src: url("https://fonts.googleapis.com/css?family=Pacifico");
+    font-family: "freestyle script";
+    src: url("/fonts/FREESCPT.eot");
+}
+@font-face {
+    font-family: "freestyle script";
+    src: url("/fonts/FREESCPT.TTF") format("truetype");
 }
 
 .accordion {
@@ -79,7 +79,7 @@
 }
 
 .header {
-    font-family: "freestyle script", "Pacifico";
+    font-family: "freestyle script";
     user-select: none;
     -ms-user-select: none;
     -moz-user-select: none;
@@ -139,15 +139,14 @@
     margin: 10px;    
 }
 
-/*firefox*/
+/* firefox */
 @-moz-document url-prefix() {
     .thumbnail {
-        /* firefox */
         height: auto;
     }
 }
 
-/*edge*/
+/* edge */
 @supports (-ms-ime-align: auto) {
     .thumbnail {
         height: auto;
@@ -156,19 +155,17 @@
 
 /* IE */
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {  
-    aside {
+    .aside {
         font-size: 0.8em;
     }
-    h1 {
-        text-align: left;
-        padding-left: 5em;
+    .h1 {
+        padding-left: 10%;
     }
     .slideshow {
         margin-left: 1%;
     }
     .thumbnail {
-        width: 10%;
-        height: 70%;
+        max-width: 100px;
         min-width: 10em;
     }
 }

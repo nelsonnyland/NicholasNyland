@@ -1,12 +1,13 @@
+/* ~/Home/Index */
+
 @font-face {
     font-family: "freestyle script";
-    src: url("/fonts/FREESCPT.TTF") format("truetype"), 
-         url(FREESCPT.TTF) format("truetype");
+    src: url("/fonts/FREESCPT.eot");
 }
 
 @font-face {
-    font-family: "Pacifico";
-    src: url("https://fonts.googleapis.com/css?family=Pacifico");
+    font-family: "freestyle script";
+    src: url("/fonts/FREESCPT.TTF") format("truetype");
 }
 
 .accordion {
@@ -70,7 +71,7 @@ aside {
 }
 
 .header {
-    font-family: "freestyle script", "Pacifico";
+    font-family: "freestyle script";
 }
 
 .news-img {

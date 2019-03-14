@@ -16,22 +16,13 @@
 
     <div class="card">
 
-        <table class="table">
-            <tr>
-                <th>
-                    <img src="@Html.DisplayFor(modelItem => firstPicture)"
-                         class="img" />
-                </th>
-                <th>
-                    <h2 class="font card-title">@item.Name</h2>
-                </th>
-                <th>
-                    <p class="font card-item">@Html.DisplayFor(modelItem => item.Date)</p>
-                </th>
-                <th>
-                    <p class="font card-item">@Html.DisplayFor(modelItem => item.Location)</p>
-                </th>
-            </tr>
-        </table>
+        <img src="@Html.DisplayFor(modelItem => firstPicture)" class="img" />
+
+        <p class="font card-item">@item.Name</p>
+        
+        <p class="font card-item">@Html.DisplayFor(modelItem => item.Date)</p>
+
+        <p class="font card-item">@Html.DisplayFor(modelItem => item.Location)</p>
+        
     </div>
 }
