@@ -113,8 +113,10 @@ function setEventListener() {
  * Sets thumbnails on load.
  * */
 function setThumbnails() {
-    for (var i = 4; i < slides.length; ++i) {
-        slides[i].style.display = "none";
+    if (screen.width < 900) {        
+        for (var i = 0; i < slides.length; ++i) {
+            slides[i].style.display = "block";
+        }
     }
 }
 

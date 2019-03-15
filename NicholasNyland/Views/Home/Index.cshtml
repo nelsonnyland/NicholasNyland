@@ -108,9 +108,18 @@
                 @* Gallery *@
                 @if (Model.Gallery != null)
                 {
+                    int count = 0;
                     foreach (var thumbnail in Model.Gallery)
                     {
-                        <img class="thumbnail" src="@Html.DisplayFor(item => thumbnail.Path)">
+                        if (++count < 5)
+                        {
+                            <img class="thumbnail" src="@Html.DisplayFor(item => thumbnail.Path)" />
+                        }
+                        else
+                        {
+                            <img class="thumbnail" src="@Html.DisplayFor(item => thumbnail.Path)" 
+                                 style=" display: none; " />
+                        }
                     }
                 }
 
