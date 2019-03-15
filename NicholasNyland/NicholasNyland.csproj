@@ -244,6 +244,7 @@
     <Content Include="fonts\FREESCPT.TTF" />
     <Content Include="fonts\KaushanScript-Regular.otf" />
     <Content Include="fonts\FREESCPT.eot" />
+    <None Include="Properties\PublishProfiles\NicholasNyland - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
