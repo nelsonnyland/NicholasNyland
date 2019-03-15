@@ -53,7 +53,7 @@ namespace NicholasNyland.Controllers
 
         public ActionResult News()
         {
-            return View();
+            return View(ExhibitsDb.GetAllExhibits(db));
         }
     }
 }

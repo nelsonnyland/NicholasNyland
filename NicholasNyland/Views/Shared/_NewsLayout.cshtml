@@ -1,0 +1,16 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>News</title>
+    @*<meta content="width=device-width, initial-scale=1" name="viewport" />*@
+    <link rel="stylesheet" media="screen and (min-width: 750px)" href="@Url.Content("~/Styles/news-desktop.css")">
+    <link rel="stylesheet" media="screen and (max-width: 750px)" href="@Url.Content("~/Styles/news-mobile.css")">
+</head>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

@@ -13,21 +13,26 @@
     <link rel="favicon" href="images/favicon.ico">
     <meta charset="utf-8">
     <meta name="nicholas nyland" content="Nicholas Nyland">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link rel="stylesheet" media="screen and (min-width: 900px)" href="@Url.Content("~/Styles/desktop.css")">
     <link rel="stylesheet" media="screen and (max-width: 900px)" href="@Url.Content("~/Styles/mobile.css")">
-    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 </head>
 
 <body>
     <header>
-        <img src="~/Images/FirstSignature.jpg" class="h1" width="400" height="100" />
+        <img src="~/Images/FirstSignature.jpg" class="h1" />
     </header>
     <main>
-        <aside class="header">
+        <aside id="aside" class="header">
             <nav>
-                <h2 class="accordion news">News</h2>
-                <img src="@ViewBag.NewsPath" class="news-img news">
-                <p class="accordion news-element news-caption news">@ViewBag.NewsName</p>
+                
+                @* News *@
+                <a href="@Url.Action("News", "Home")" class="news">
+                    <h2 class="accordion news">News</h2>
+                    <img src="@ViewBag.NewsPath" class="news-img news">
+                    <p class="accordion news-element news-caption news">@ViewBag.NewsName</p>
+                </a>
+                
                 <h2 class="accordion">Exhibitions</h2>
                 <div class="panel">
                     
@@ -84,7 +89,7 @@
 
                 </div>
                 <h2 class="aside-element">About</h2>
-                <p class="aside-element caption">
+                <p class="caption">
                     Nicholas Nyland is a local Puget Sound artist that is currently
                     residing in Tacoma, WA.
                 </p>
@@ -92,11 +97,13 @@
         </aside>
         <section id="container">
             <figure class="slideshow">
-                <div id="slide" class="fade">
+                <div id="slide">
 
                 </div>
             </figure>
             <figure id="bottom-container">
+
+                <img id="prev" class="button" src="~/Images/triangleleft.png">
 
                 @* Gallery *@
                 @if (Model.Gallery != null)
@@ -104,11 +111,19 @@
                     int count = 0;
                     foreach (var thumbnail in Model.Gallery)
                     {
-                        <img class="thumbnail" src="@Html.DisplayFor(item => thumbnail.Path)">
-
-                        if (++count == 4) { break; }
+                        if (++count < 5)
+                        {
+                            <img class="thumbnail" src="@Html.DisplayFor(item => thumbnail.Path)" />
+                        }
+                        else
+                        {
+                            <img class="thumbnail" src="@Html.DisplayFor(item => thumbnail.Path)" 
+                                 style=" display: none; " />
+                        }
                     }
                 }
+
+                <img id="next" class="button" src="~/Images/triangleright.png">
 
             </figure>
         </section>

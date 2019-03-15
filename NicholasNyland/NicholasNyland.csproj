@@ -221,6 +221,10 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Images\triangleleft.png" />
+    <Content Include="Images\triangleright.png" />
+    <Content Include="Styles\news-mobile.css" />
+    <Content Include="Styles\news-desktop.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -229,7 +233,6 @@
     <Content Include="Images\FirstSignature.jpg" />
     <Content Include="Images\triangledown.png" />
     <Content Include="Images\triangleside.png" />
-    <Content Include="Images\triangleup.png" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -240,6 +243,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="fonts\FREESCPT.TTF" />
     <Content Include="fonts\KaushanScript-Regular.otf" />
+    <Content Include="fonts\FREESCPT.eot" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -299,6 +303,7 @@
     <Content Include="Views\Exhibits\Index.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Home\News.cshtml" />
+    <Content Include="Views\Shared\_NewsLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
