@@ -16,26 +16,27 @@
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link rel="stylesheet" media="screen and (min-width: 900px)" href="@Url.Content("~/Styles/desktop.css")">
     <link rel="stylesheet" media="screen and (max-width: 900px)" href="@Url.Content("~/Styles/mobile.css")">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
 
 <body>
     <header>
-        <img src="~/Images/FirstSignature.jpg" alt="NicholasNyland" class="h1" />
+        <img class="h1" src="~/Images/FirstSignature.jpg" alt="NicholasNyland" />   
     </header>
     <main>
-        <aside id="aside" class="header">
+        <aside id="aside" class="header no-select">
             <nav>
-                
+
                 @* News *@
                 <a href="@Url.Action("News", "Home")" class="news">
                     <h2 class="accordion news">News</h2>
                     <img src="@ViewBag.NewsPath" class="news-img news">
                     <p class="accordion news-element news-caption news">@ViewBag.NewsName</p>
                 </a>
-                
+
                 <h2 class="accordion">Exhibitions</h2>
                 <div class="panel">
-                    
+
                     @* Exhibitions *@
                     @{ int year = 0; }
                     @foreach (var exhibit in Model.Exhibits)
@@ -44,14 +45,16 @@
                         {
                             year = exhibit.Key.Year;
                             <img src="~/Images/triangleside.png" class="arrow"><span class="date">
-                                @year</span><br>
+                                @year
+                            </span><br>
                         }
 
                         <div class="exhibitions">
-                            <p class="show">@Html.ActionLink(exhibit.Value, "Index", new { id = exhibit.Value }, htmlAttributes: new { @class = "show" })
-                            </p>
-                        </div>
-                    }
+                            <p class="show">
+                                @Html.ActionLink(exhibit.Value, "Index", new { id = exhibit.Value }, htmlAttributes: new { @class = "show" })
+                        </p>
+                    </div>
+                }
 
                 </div>
                 <h2 class="accordion">Paintings</h2>
@@ -93,6 +96,8 @@
                     Nicholas Nyland is a local Puget Sound artist that is currently
                     residing in Tacoma, WA.
                 </p>
+                <a class="fa fa-facebook" href="https://www.facebook.com/nicholas.nyland.7"></a>
+                <a class="fa fa-instagram" href="https://www.instagram.com/nicholasnyland/"></a>
             </nav>
         </aside>
         <section id="container">
