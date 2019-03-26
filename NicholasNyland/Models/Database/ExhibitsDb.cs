@@ -95,6 +95,16 @@ namespace NicholasNyland.Models.Database
             return exhibit;
         }
 
+        public static bool HasExhibit(ArtDb db, string name)
+        {
+            Exhibit ex = db.DbExhibit.Find(name);
+            if (ex is null)
+            {
+                return false;
+            }
+            return true;
+        }
+
         public static void AddExhibits(ArtDb db, IEnumerable<Exhibit> exhibits)
         {
             db.DbExhibit.AddRange(exhibits);
@@ -104,6 +114,6 @@ namespace NicholasNyland.Models.Database
         {
             db.DbExhibit.Remove(exhibit);
             db.SaveChanges();
-        }
+        }        
     }
 }

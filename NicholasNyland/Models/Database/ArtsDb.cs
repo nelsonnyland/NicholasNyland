@@ -253,9 +253,15 @@ namespace NicholasNyland.Models.Database
         /// <returns></returns>
         public static IList<Art> GetArtsByString(ArtDb db, string selects)
         {
-            string[] names = selects.Split(',');
-            IEnumerable<Art> iArts = db.DbArt.Where(a => names.Contains(a.Name));
-            IList<Art> arts = new List<Art>(iArts);            
+            IList<Art> arts = new List<Art>();
+            if (selects != null)
+            {
+                string[] names = selects.Split(',');
+                IEnumerable<Art> iArts = db.DbArt.Where(a => names.Contains(a.Name));
+                IList<Art> artset = new List<Art>(iArts);
+                arts = artset;
+            }
+            
             return arts;
         }
 
