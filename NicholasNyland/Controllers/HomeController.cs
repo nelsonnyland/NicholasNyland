@@ -45,7 +45,10 @@ namespace NicholasNyland.Controllers
             else
             {
                 Exhibit show = ExhibitsDb.GetNews(db);
-                vm.Gallery = show.Gallery;
+                if (show != null)
+                {
+                    vm.Gallery = show.Gallery;
+                }
             }
 
             return View(vm);

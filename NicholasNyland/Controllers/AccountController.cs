@@ -14,7 +14,7 @@ using NicholasNyland.Models.Models.ViewModels;
 
 namespace NicholasNyland.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class AccountController : Controller
     {
         ArtDb artDb = new ArtDb();
@@ -205,6 +205,7 @@ namespace NicholasNyland.Controllers
 
         //
         // GET: /Account/ForgotPassword
+        [AllowAnonymous]
         public ActionResult ForgotPassword()
         {
             return View();
@@ -214,6 +215,7 @@ namespace NicholasNyland.Controllers
         // POST: /Account/ForgotPassword
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AllowAnonymous]
         public async Task<ActionResult> ForgotPassword(ForgotPasswordViewModel model)
         {
             if (ModelState.IsValid)
@@ -227,6 +229,8 @@ namespace NicholasNyland.Controllers
 
                 // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                 // Send an email with this link
+                // https://docs.microsoft.com/en-us/aspnet/mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset
+
                 // string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
                 // var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);		
                 // await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
@@ -239,6 +243,7 @@ namespace NicholasNyland.Controllers
 
         //
         // GET: /Account/ForgotPasswordConfirmation
+        [AllowAnonymous]
         public ActionResult ForgotPasswordConfirmation()
         {
             return View();
