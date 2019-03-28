@@ -157,6 +157,7 @@ namespace NicholasNyland.Controllers
 
         //
         // GET: /Account/Register
+        [AllowAnonymous]
         public ActionResult Register()
         {
             return View();
@@ -165,6 +166,7 @@ namespace NicholasNyland.Controllers
         //
         // POST: /Account/Register
         [HttpPost]
+        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
@@ -172,19 +174,23 @@ namespace NicholasNyland.Controllers
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
+                if (result.Succeeded && user.Email == "nicholasnyland@gmail.com")
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    //await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                    string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                    await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
                     return RedirectToAction("Index", "Account");
                 }
-                AddErrors(result);
+                else
+                {
+                    result = IdentityResult.Failed("Invalid user.");
+                    AddErrors(result);
+                }
             }
 
             // If we got this far, something failed, redisplay form
@@ -193,6 +199,7 @@ namespace NicholasNyland.Controllers
 
         //
         // GET: /Account/ConfirmEmail
+        [AllowAnonymous]
         public async Task<ActionResult> ConfirmEmail(string userId, string code)
         {
             if (userId == null || code == null)
@@ -251,6 +258,7 @@ namespace NicholasNyland.Controllers
 
         //
         // GET: /Account/ResetPassword
+        [AllowAnonymous]
         public ActionResult ResetPassword(string code)
         {
             return code == null ? View("Error") : View();
@@ -259,6 +267,7 @@ namespace NicholasNyland.Controllers
         //
         // POST: /Account/ResetPassword
         [HttpPost]
+        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ResetPassword(ResetPasswordViewModel model)
         {
@@ -283,6 +292,7 @@ namespace NicholasNyland.Controllers
 
         //
         // GET: /Account/ResetPasswordConfirmation
+        [AllowAnonymous]
         public ActionResult ResetPasswordConfirmation()
         {
             return View();
@@ -291,6 +301,7 @@ namespace NicholasNyland.Controllers
         //
         // POST: /Account/ExternalLogin
         [HttpPost]
+        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public ActionResult ExternalLogin(string provider, string returnUrl)
         {
@@ -300,6 +311,7 @@ namespace NicholasNyland.Controllers
 
         //
         // GET: /Account/SendCode
+        [AllowAnonymous]
         public async Task<ActionResult> SendCode(string returnUrl, bool rememberMe)
         {
             var userId = await SignInManager.GetVerifiedUserIdAsync();
@@ -315,6 +327,7 @@ namespace NicholasNyland.Controllers
         //
         // POST: /Account/SendCode
         [HttpPost]
+        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> SendCode(SendCodeViewModel model)
         {
@@ -333,6 +346,7 @@ namespace NicholasNyland.Controllers
 
         //
         // GET: /Account/ExternalLoginCallback
+        [AllowAnonymous]
         public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
         {
             var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync();
@@ -363,6 +377,7 @@ namespace NicholasNyland.Controllers
         //
         // POST: /Account/ExternalLoginConfirmation
         [HttpPost]
+        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
         {
@@ -409,6 +424,7 @@ namespace NicholasNyland.Controllers
 
         //
         // GET: /Account/ExternalLoginFailure
+        [AllowAnonymous]
         public ActionResult ExternalLoginFailure()
         {
             return View();

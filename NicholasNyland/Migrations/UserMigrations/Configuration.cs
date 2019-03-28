@@ -23,32 +23,32 @@ namespace NicholasNyland.Migrations.UserMigrations
             //  to avoid creating duplicate seed data.
 
             // makes an admin role if one doesn't exist
-            if (!context.Roles.Any(r => r.Name == "Admin"))
-            {
-                var store = new RoleStore<IdentityRole>(context);
-                var manager = new RoleManager<IdentityRole>(store);
-                var role = new IdentityRole { Name = "Admin" };
+            //if (!context.Roles.Any(r => r.Name == "Admin"))
+            //{
+            //    var store = new RoleStore<IdentityRole>(context);
+            //    var manager = new RoleManager<IdentityRole>(store);
+            //    var role = new IdentityRole { Name = "Admin" };
 
-                manager.Create(role);
-            }
+            //    manager.Create(role);
+            //}
 
             // if user doesn't exist, create one and add it to the admin role
-            if (!context.Users.Any(u => u.UserName == "nicholasnyland@gmail.com"))
-            {
-                var store = new UserStore<ApplicationUser>(context);
-                var manager = new UserManager<ApplicationUser>(store);                
-                var hash = new PasswordHasher();
+            //if (!context.Users.Any(u => u.UserName == "nicholasnyland@gmail.com"))
+            //{
+            //    var store = new UserStore<ApplicationUser>(context);
+            //    var manager = new UserManager<ApplicationUser>(store);                
+            //    var hash = new PasswordHasher();
 
-                var user = new ApplicationUser
-                {
-                    UserName = "nicholasnyland@gmail.com",
-                    Email = "nicholasnyland@gmail.com",
-                    PasswordHash = hash.HashPassword("admin")
-                };
+            //    var user = new ApplicationUser
+            //    {
+            //        UserName = "nicholasnyland@gmail.com",
+            //        Email = "nicholasnyland@gmail.com",
+            //        PasswordHash = hash.HashPassword("admin")
+            //    };
 
-                manager.Create(user);
-                manager.AddToRole(user.Id, "Admin");
-            }
+            //    manager.Create(user);
+            //    manager.AddToRole(user.Id, "Admin");
+            //}
         }
     }
 }
