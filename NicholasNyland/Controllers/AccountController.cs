@@ -99,15 +99,15 @@ namespace NicholasNyland.Controllers
             //    return RedirectToAction("ForgotPassword", "Account", model.Email);
             //}
 
-            if (model.Email != null)
-            {
-                var user = await _userManager.FindByNameAsync(model.Email);
-                if (user != null && (!await _userManager.IsEmailConfirmedAsync(user.Id)))
-                {
-                    ModelState.AddModelError(string.Empty, "You must have a confirmed email to log in.");
-                    return View(model);
-                }
-            }
+            //if (model.Email != null)
+            //{
+            //    ApplicationUser user = await _userManager.FindByNameAsync(model.Email);
+            //    if (user != null && (!await _userManager.IsEmailConfirmedAsync(user.Id)))
+            //    {
+            //        ModelState.AddModelError(string.Empty, "You must have a confirmed email to log in.");
+            //        return View(model);
+            //    }
+            //}
 
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: true);
             switch (result)
