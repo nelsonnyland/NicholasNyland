@@ -96,7 +96,21 @@ namespace NicholasNyland.Controllers
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            //var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+
+            //if (model.ForgotPassword)
+            //{
+            //    return RedirectToAction("ForgotPassword", "Account", model.Email);
+            //}
+
+            var user = await _userManager.FindByNameAsync(model.Email);
+            if (user != null && (!await _userManager.IsEmailConfirmedAsync(user.Id)))
+            {
+                ModelState.AddModelError(string.Empty, "You must have a confirmed email to log in.");
+                return View(model);
+            }
+
+            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: true);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -213,12 +227,20 @@ namespace NicholasNyland.Controllers
         //
         // GET: /Account/ForgotPassword
         [AllowAnonymous]
-        public ActionResult ForgotPassword()
+        public async Task<ActionResult> ForgotPassword(string id)
         {
+            var user = await UserManager.FindByNameAsync(id);
+            if (user != null && (await UserManager.IsEmailConfirmedAsync(user.Id)))
+            {
+                string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
+                var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
+            }
+
             return View();
         }
 
-        //
+        /*        
         // POST: /Account/ForgotPassword
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -247,14 +269,7 @@ namespace NicholasNyland.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
-
-        //
-        // GET: /Account/ForgotPasswordConfirmation
-        [AllowAnonymous]
-        public ActionResult ForgotPasswordConfirmation()
-        {
-            return View();
-        }
+         **/
 
         //
         // GET: /Account/ResetPassword

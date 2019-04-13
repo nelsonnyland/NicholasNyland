@@ -1,28 +1,36 @@
 ﻿@model IEnumerable<NicholasNyland.Models.Exhibit>
 
+@using NicholasNyland.Models
+
 @{
     Layout = "~/Views/Shared/_NewsLayout.cshtml";
 }
 
 <div class="top">
-    <p class="font home">@Html.ActionLink("Nicholas Nyland", "Index", null, new { @class = "home"})</p>
+    <p class="font home">@Html.ActionLink("Nicholas Nyland", "Index", null, new { @class = "home" })</p>
     <h1 class="font header">News</h1>
 </div>
 
 @foreach (var item in Model)
 {
-    var first = item.Gallery.First();
-    var firstPicture = first.Path;
+    Art first = new Art();
+    string firstPicture = "";
+
+    if (item.Gallery.Count() > 0)
+    {
+        first = item.Gallery.First();
+        firstPicture = first.Path;
+    }
 
     <div class="card">
 
         <img src="@Html.DisplayFor(modelItem => firstPicture)" class="img" />
 
         <p class="font card-item">@item.Name</p>
-        
+
         <p class="font card-item">@Html.DisplayFor(modelItem => item.Date)</p>
 
         <p class="font card-item">@Html.DisplayFor(modelItem => item.Location)</p>
-        
+
     </div>
 }
