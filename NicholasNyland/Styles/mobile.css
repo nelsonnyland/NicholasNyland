@@ -69,6 +69,34 @@ aside {
     font-size: 1.0em;
 }
 
+.fa {
+    text-align: center;
+    text-decoration: none;
+    font-size: 2px;
+    /*border-radius: 50%;*/
+    width: 17px;
+    padding: 5px;
+    margin: 0.2em;
+}
+
+.fa:hover {
+    color: blue;
+}
+
+.fa-facebook {
+    /*border-style: solid;
+    border-width: thin;
+    border-color: #3B5998;*/
+    color: #3B5998;
+}
+
+.fa-instagram {
+    /*border-style: solid;
+    border-width: thin;
+    border-color: #125688;*/
+    color: #125688;
+}
+
 .h1 {
     object-fit: contain;
     display: block;
@@ -101,6 +129,14 @@ aside {
 
 .news-element {
     padding-left: 1em;
+}
+
+.no-select {
+    user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
 }
 
 .panel {

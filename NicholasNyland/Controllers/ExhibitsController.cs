@@ -64,11 +64,68 @@ namespace NicholasNyland.Controllers
                     Gallery = ArtsDb.GetArtsByString(db, data["Selects"])
                 };
 
-                db.DbExhibit.Add(ex);
+                if (!ExhibitsDb.HasExhibit(db, ex.Name))
+                {
+                    db.DbExhibit.Add(ex);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError("Name", "This name has been used already.");
+                }
+            }
+
+            return View(data);
+        }
+
+        // GET: Exhibits/Edit/5
+        public ActionResult Edit(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Exhibit ex = db.DbExhibit.Find(id);
+            if (ex == null)
+            {
+                return HttpNotFound();
+            }
+            
+            ExhibitsViewModel vm = new ExhibitsViewModel
+            {
+                Name = ex.Name,
+                Date = ex.Date,
+                Location = ex.Location,
+                ArtList = ArtsDb.GetCurrentArts_SelectListItems(db)
+            };
+
+            return View(vm);
+        }
+
+        // POST: Exhibits/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(FormCollection data)
+        {
+            if (ModelState.IsValid)
+            {
+                Exhibit ex = new Exhibit
+                {
+                    Name = data["Name"],
+                    Date = Convert.ToDateTime(data["Date"]),
+                    Location = data["Location"],
+                    ArtKeys = data["Selects"],
+                    Gallery = ArtsDb.GetArtsByString(db, data["Selects"])
+                };
+                
+                db.Entry(ex).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            
             return View(data);
         }
 
