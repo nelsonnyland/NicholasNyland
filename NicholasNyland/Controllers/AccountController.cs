@@ -94,21 +94,20 @@ namespace NicholasNyland.Controllers
                 return View(model);
             }
 
-            // This doesn't count login failures towards account lockout
-            // To enable password failures to trigger account lockout, change to shouldLockout: true
-            //var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
-
             //if (model.ForgotPassword)
             //{
             //    return RedirectToAction("ForgotPassword", "Account", model.Email);
             //}
 
-            var user = await _userManager.FindByNameAsync(model.Email);
-            if (user != null && (!await _userManager.IsEmailConfirmedAsync(user.Id)))
-            {
-                ModelState.AddModelError(string.Empty, "You must have a confirmed email to log in.");
-                return View(model);
-            }
+            //if (model.Email != null)
+            //{
+            //    ApplicationUser user = await _userManager.FindByNameAsync(model.Email);
+            //    if (user != null && (!await _userManager.IsEmailConfirmedAsync(user.Id)))
+            //    {
+            //        ModelState.AddModelError(string.Empty, "You must have a confirmed email to log in.");
+            //        return View(model);
+            //    }
+            //}
 
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: true);
             switch (result)
